@@ -12,6 +12,14 @@
         /* Hide scrollbar for the awards section but keep functionality */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes flash-red {
+            0%, 100% { background-color: rgba(127, 29, 29, 0.4); border-color: rgba(248, 113, 113, 0.3); box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
+            50% { background-color: rgba(153, 27, 27, 0.7); border-color: rgba(248, 113, 113, 0.8); box-shadow: 0 0 40px rgba(239, 68, 68, 0.6); }
+        }
+        .flash-red-active {
+            animation: flash-red 1.5s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
@@ -90,12 +98,12 @@
                     </div>
 
                     <!-- Countdown Timer Section -->
-                    <div class="mt-16 bg-slate-800/60 border border-amber-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-md max-w-3xl mx-auto shadow-2xl relative overflow-hidden group">
+                    <div id="countdown-container" class="mt-16 bg-slate-800/60 border border-amber-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-md max-w-3xl mx-auto shadow-2xl relative overflow-hidden group">
                         <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-red-500/5 opacity-50"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-center gap-3 mb-6">
-                                <i data-lucide="timer" class="text-amber-400 animate-pulse w-7 h-7"></i>
-                                <h3 class="text-amber-400 font-extrabold text-xl sm:text-2xl tracking-widest uppercase">Countdown until Welfare</h3>
+                                <i id="cd-icon" data-lucide="timer" class="text-amber-400 animate-pulse w-7 h-7"></i>
+                                <h3 id="cd-title" class="text-amber-400 font-extrabold text-xl sm:text-2xl tracking-widest uppercase">Countdown until Welfare</h3>
                             </div>
                             
                             <div class="flex flex-wrap justify-center items-end gap-2 sm:gap-4 my-6 text-white font-mono">
@@ -125,7 +133,7 @@
                                 </div>
                             </div>
 
-                            <div class="text-sm sm:text-base text-slate-300 italic leading-relaxed mt-6 bg-slate-900/40 p-5 rounded-lg border-l-4 border-amber-500 font-sans text-left space-y-4">
+                            <div id="cd-quote" class="text-sm sm:text-base text-slate-300 italic leading-relaxed mt-6 bg-slate-900/40 p-5 rounded-lg border-l-4 border-amber-500 font-sans text-left space-y-4">
                                 <p>"The job search doesn't have to be this difficult and neither for your tax dollars. I am currently up against three major factors:"</p>
                                 <ul class="list-none space-y-2 pl-2 text-sm not-italic text-slate-200">
                                     <li><strong class="text-amber-400">1.</strong> When I turn 26 years old, I will be left completely uninsured.</li>
@@ -725,7 +733,48 @@
                 show: "Good Morning Macomb • IBS Winner",
                 description: "Anchor segment featuring an exclusive interview with the Mayor of Macomb, Mike Inman, the Noises Off Show Director, and WIU President Kristi Mindrup.",
                 youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
-            }
+            },
+            
+            // --- Fall 2023 ---
+            { title: "Beu Health Center", show: "NEWS3 • Fall 2023", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Date/Rape Drugs Safety", show: "NEWS3 • Fall 2023", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Winter and Climate", show: "NEWS3 • Fall 2023", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            
+            // --- Spring 2024 ---
+            { title: "Attendance Policies", show: "NEWS3 • Spring 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "C.T. Vivian", show: "NEWS3 • Spring 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Dr. Timothy R LaVine", show: "NEWS3 • Spring 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Intrium Dr. Mindrup", show: "NEWS3 • Spring 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "MLK Assassination", show: "NEWS3 • Spring 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+
+            // --- Fall 2024 ---
+            { title: "American Dream", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Fall Entertainment Movies Playing", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Group Therapy Proposal", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Haunted Buildings on WIU Campus", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Mayor Mike Inman Profile", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Student and Faculty Town Hall", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Student and Faculty Town Hall Part 2", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Vice President for Finance and Administration", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "YMCA Circus", show: "NEWS3 • Fall 2024", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+
+            // --- Spring 2025 ---
+            { title: "Charles Evans Career Story", show: "NEWS3 • Spring 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Interview with Academic Advisor Niall Hartnett", show: "NEWS3 • Spring 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Interview with Mayor Inman", show: "NEWS3 • Spring 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Performing Arts Building Progress", show: "NEWS3 • Spring 2025", description: "Featuring former Dean Billy Clow.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "President Mindrup Spring Interview", show: "NEWS3 • Spring 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+
+            // --- Fall 2025 ---
+            { title: "Alzheimer's Association Macomb Walk BTS", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "History of Winter Holidays", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Jeopardy WIU Alumni Feature", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Profile on Niall Hartnett", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Sarah's Data Collection Adventures", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Sarah's Weather Research Vehicle", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Sarah on Reed Timmer", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Toys for Tots and Angel Tree", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" },
+            { title: "Two Factor, Scams, and Technology", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" }
         ];
 
         const radioBroadcastsData = [
@@ -1290,16 +1339,38 @@
             
             // Countdown Logic
             const targetDate = new Date("2027-01-29T00:00:00").getTime();
+            const cdContainer = document.getElementById('countdown-container');
+            const cdTitle = document.getElementById('cd-title');
+            const cdIcon = document.getElementById('cd-icon');
+            const cdMs = document.getElementById('cd-milliseconds');
+            const cdQuote = document.getElementById('cd-quote');
+            let isPastWelfare = false;
+
             setInterval(() => {
                 const now = new Date().getTime();
-                const difference = targetDate - now;
-                if (difference > 0) {
-                    document.getElementById('cd-days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    document.getElementById('cd-hours').innerText = String(Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                    document.getElementById('cd-minutes').innerText = String(Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                    document.getElementById('cd-seconds').innerText = String(Math.floor((difference % (1000 * 60)) / 1000)).padStart(2, '0');
-                    document.getElementById('cd-milliseconds').innerText = String(Math.floor(difference % 1000)).padStart(3, '0');
+                let difference = targetDate - now;
+                
+                if (difference <= 0) {
+                    difference = Math.abs(difference); // Reverses math to count upwards
+                    
+                    // Trigger red visual styling
+                    if (!isPastWelfare) {
+                        isPastWelfare = true;
+                        cdTitle.innerText = "Time Elapsed On Welfare";
+                        cdContainer.classList.add('flash-red-active');
+                        cdContainer.classList.remove('bg-slate-800/60', 'border-amber-500/30');
+                        cdTitle.classList.replace('text-amber-400', 'text-red-400');
+                        cdIcon.classList.replace('text-amber-400', 'text-red-400');
+                        cdMs.classList.replace('text-amber-400', 'text-red-400');
+                        cdQuote.classList.replace('border-amber-500', 'border-red-500');
+                    }
                 }
+
+                document.getElementById('cd-days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24));
+                document.getElementById('cd-hours').innerText = String(Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = String(Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById('cd-seconds').innerText = String(Math.floor((difference % (1000 * 60)) / 1000)).padStart(2, '0');
+                document.getElementById('cd-milliseconds').innerText = String(Math.floor(difference % 1000)).padStart(3, '0');
             }, 10);
         });
 
