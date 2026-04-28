@@ -296,7 +296,7 @@
         </section>
 
         <!-- Radio Broadcasts Section -->
-        <section id="radio-broadcasts" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
+        <section id="radio-broadcasts" class="py-16 bg-purple-900 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
                     <i data-lucide="radio" class="w-6 h-6"></i>
@@ -311,6 +311,48 @@
                 </div>
 
                 <div id="radio-broadcasts-container" class="grid md:grid-cols-2 gap-8">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TikTok Challenges Section -->
+        <section id="tiktok-challenges" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
+                    <i data-lucide="smartphone" class="w-6 h-6"></i>
+                    <h2>TikTok Teleprompter Challenges</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Western Illinois University</h3>
+                    <p class="text-purple-200 leading-relaxed">
+                        A featured collection of my fast-paced TikTok teleprompter challenges showcasing my on-the-fly reading and broadcasting adaptability.
+                    </p>
+                </div>
+
+                <div id="tiktok-challenges-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Samples Section -->
+        <section id="social-media-samples" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
+                    <i data-lucide="share-2" class="w-6 h-6"></i>
+                    <h2>Social Media Work Samples</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Western Illinois University</h3>
+                    <p class="text-purple-200 leading-relaxed">
+                        A collection of my academic projects and assignments focusing on social media strategy, analytics, and client-based campaigns.
+                    </p>
+                </div>
+
+                <div id="social-media-samples-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Populated by JS -->
                 </div>
             </div>
@@ -669,7 +711,7 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Experience', 'News Packages', 'Radio Broadcasts', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Experience', 'News Packages', 'Radio Broadcasts', 'TikTok Challenges', 'Social Media Samples', 'Resumes', 'Education', 'Volunteering', 'Skills'];
 
         const newsPackagesData = [
             {
@@ -688,16 +730,130 @@
 
         const radioBroadcastsData = [
             {
-                title: "88.3 The Dog - Host Segment",
+                title: "2nd Radio Show: Spencer and Chris Variety Show",
                 show: "88.3 The Dog • WIUS Macomb",
-                description: "A highlight collection of my live radio shows, music transitions, and student life discussions produced as a radio host at Western Illinois University.",
-                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "Dna05zlB2xI"
             },
             {
-                title: "Radio Interview / Discussion",
+                title: "The Spencer Radio Hour | 9/26/24",
                 show: "88.3 The Dog • WIUS Macomb",
-                description: "An engaging radio interview and discussion segment covering local events and university news.",
-                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "NwzzO6axvrY"
+            },
+            {
+                title: "The Spencer Radio Hour | 10/3/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "3DkaJyrQTvE"
+            },
+            {
+                title: "The Spencer Radio Hour | 10/10/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "SFrMBGxkZlw"
+            },
+            {
+                title: "The Spencer Radio Hour | 10/17/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "6PKdqZ44zew"
+            },
+            {
+                title: "The Spencer Radio Hour | 10/24/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "KryycOjc02U"
+            },
+            {
+                title: "The Spencer Radio Hour | 11/7/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "V4QzBy_DbEE"
+            },
+            {
+                title: "The Spencer Radio Hour | 11/14/24",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "Live radio broadcast featuring music, transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "6OBV5P_3pno"
+            }
+        ];
+
+        const tiktokChallengesData = [
+            {
+                title: "TikTok Teleprompter Reading Challenge 4",
+                show: "TikTok • WIU BC&J",
+                description: "A fast-paced teleprompter reading challenge highlighting my on-the-fly broadcasting skills, pacing, and clear enunciation.",
+                youtubeId: "MRS2BHvASng"
+            },
+            {
+                title: "TikTok Teleprompter Reading Challenge 5",
+                show: "TikTok • WIU BC&J",
+                description: "Another engaging teleprompter challenge recorded during my time in the WIU Broadcasting and Journalism program.",
+                youtubeId: "Q7t_abaQG_4"
+            },
+            {
+                title: "TikTok Teleprompter Reading Challenge 6",
+                show: "TikTok • WIU BC&J",
+                description: "Showcasing versatility and adaptability with complex phrasing and timing in a broadcast setting.",
+                youtubeId: "lu31BZa_nFc"
+            },
+            {
+                title: "TikTok Teleprompter Reading Challenge 7",
+                show: "TikTok • WIU BC&J",
+                description: "A fast-paced teleprompter reading challenge highlighting my on-the-fly broadcasting skills, pacing, and clear enunciation.",
+                youtubeId: "35CdYEdEGuQ"
+            },
+            {
+                title: "TikTok Teleprompter Reading Challenge 8",
+                show: "TikTok • WIU BC&J",
+                description: "Another engaging teleprompter challenge recorded during my time in the WIU Broadcasting and Journalism program.",
+                youtubeId: "7q1hmfVzS6c"
+            },
+            {
+                title: "TikTok Teleprompter Reading Challenge 10",
+                show: "TikTok • WIU BC&J",
+                description: "Showcasing versatility and adaptability with complex phrasing and timing in a broadcast setting.",
+                youtubeId: "oPf5TDDo7CI"
+            }
+        ];
+
+        const socialMediaSamplesData = [
+            {
+                title: "Time Spent on Social Media Apps",
+                assignment: "Assignment 1",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link (e.g. Google Drive link)
+            },
+            {
+                title: "Personal Branding",
+                assignment: "Assignment 2",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link
+            },
+            {
+                title: "Advertising Analysis",
+                assignment: "Assignment 3",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link
+            },
+            {
+                title: "Identifying Social Media Influencers",
+                assignment: "Assignment 4",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link
+            },
+            {
+                title: "Calculating the Potential Reach for Employee Advocacy Programs",
+                assignment: "Assignment 5",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link
+            },
+            {
+                title: "Social Media Client Project",
+                assignment: "Assignment 6",
+                course: "Social Media Analytics",
+                link: "#" // <-- Replace with your document link
             }
         ];
         
@@ -897,6 +1053,37 @@
             `).join('');
         }
 
+        function renderTiktokChallenges() {
+            const container = document.getElementById('tiktok-challenges-container');
+            container.innerHTML = tiktokChallengesData.map(pkg => `
+                <div class="bg-purple-950 p-6 rounded-2xl shadow-lg border border-purple-700/50 hover:border-yellow-400/80 transition-colors">
+                    <div class="aspect-[9/16] w-[min(100%,320px)] mx-auto rounded-xl overflow-hidden bg-slate-800 mb-5 relative group shadow-md border border-purple-800">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2 text-center md:text-left">${pkg.title}</h4>
+                    <p class="text-sm font-bold text-yellow-400 mb-3 uppercase tracking-wide text-center md:text-left">${pkg.show}</p>
+                    <p class="text-sm text-purple-200 leading-relaxed text-center md:text-left">${pkg.description}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderSocialMediaSamples() {
+            const container = document.getElementById('social-media-samples-container');
+            container.innerHTML = socialMediaSamplesData.map(sample => `
+                <a href="${sample.link}" target="_blank" class="block bg-purple-950 p-6 rounded-2xl shadow-lg border border-purple-700/50 hover:border-yellow-400 hover:-translate-y-1 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-800 rounded-lg text-yellow-400 group-hover:bg-yellow-400 group-hover:text-slate-900 transition-colors">
+                            <i data-lucide="file-text" class="w-6 h-6"></i>
+                        </div>
+                        <i data-lucide="external-link" class="w-5 h-5 text-purple-400 group-hover:text-yellow-400 transition-colors"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2 leading-tight">${sample.title}</h4>
+                    <p class="text-xs font-bold text-yellow-400 mb-2 uppercase tracking-wide">${sample.assignment}</p>
+                    <p class="text-sm text-purple-200">${sample.course}</p>
+                </a>
+            `).join('');
+        }
+
         let currentResumeKey = 'socialMedia';
 
         function renderResumeTabs() {
@@ -1039,6 +1226,8 @@
             renderExperience();
             renderNewsPackages();
             renderRadioBroadcasts();
+            renderTiktokChallenges();
+            renderSocialMediaSamples();
             renderResumeTabs();
             renderActiveResume();
             lucide.createIcons();
