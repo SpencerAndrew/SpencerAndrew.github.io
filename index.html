@@ -125,9 +125,15 @@
                                 </div>
                             </div>
 
-                            <p class="text-sm sm:text-base text-slate-300 italic leading-relaxed mt-6 bg-slate-900/40 p-4 rounded-lg border-l-4 border-amber-500 font-sans text-left">
-                                "The job search doesn't have to be this difficult and neither for your tax dollars. Be the reason I am able to support myself and to not have to being reliant on other fellow hard-working Americans earned money! Hire me today!"
-                            </p>
+                            <div class="text-sm sm:text-base text-slate-300 italic leading-relaxed mt-6 bg-slate-900/40 p-5 rounded-lg border-l-4 border-amber-500 font-sans text-left space-y-4">
+                                <p>"The job search doesn't have to be this difficult and neither for your tax dollars. I am currently up against three major factors:"</p>
+                                <ul class="list-none space-y-2 pl-2 text-sm not-italic text-slate-200">
+                                    <li><strong class="text-amber-400">1.</strong> When I turn 26 years old, I will be left completely uninsured.</li>
+                                    <li><strong class="text-amber-400">2.</strong> The job market is more competitive than it has been in the past, making it harder to get hired for a job of any kind, especially degreed jobs.</li>
+                                    <li><strong class="text-amber-400">3.</strong> There are currently more job seekers than open positions, leaving college graduates without jobs and careers more than non-degreed workers in some 20 years.</li>
+                                </ul>
+                                <p>"Be the reason I am able to support myself and to not have to being reliant on other fellow hard-working Americans earned money! Hire me today!"</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -263,6 +269,48 @@
                 </div>
 
                 <div id="experience-container" class="space-y-12">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Broadcast News Packages Section -->
+        <section id="news-packages" class="pt-20 pb-16 bg-purple-900 border-t-8 border-yellow-500 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
+                    <i data-lucide="video" class="w-6 h-6"></i>
+                    <h2>Broadcast News Packages</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Western Illinois University</h3>
+                    <p class="text-purple-200 leading-relaxed">
+                        A featured collection of my on-camera reporting, anchor segments, and news packages produced as a broadcast journalism student.
+                    </p>
+                </div>
+
+                <div id="news-packages-container" class="grid md:grid-cols-2 gap-8">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Radio Broadcasts Section -->
+        <section id="radio-broadcasts" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
+                    <i data-lucide="radio" class="w-6 h-6"></i>
+                    <h2>Radio Broadcasts</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">88.3 The Dog</h3>
+                    <p class="text-purple-200 leading-relaxed">
+                        A featured collection of my live radio shows, interviews, and audio segments produced as a radio host at Western Illinois University.
+                    </p>
+                </div>
+
+                <div id="radio-broadcasts-container" class="grid md:grid-cols-2 gap-8">
                     <!-- Populated by JS -->
                 </div>
             </div>
@@ -621,7 +669,37 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Experience', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Experience', 'News Packages', 'Radio Broadcasts', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+
+        const newsPackagesData = [
+            {
+                title: "Irish Academic Advisor Profile",
+                show: "NEWS3 • IBS Award Finalist",
+                description: "A profile highlighting an Irish Academic Advisor, his immigration journey to the United States, and his career at WIU. Placed 2nd for Best News Package at IBS.",
+                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+            },
+            {
+                title: "Good Morning Macomb - Mayoral Interview",
+                show: "Good Morning Macomb • IBS Winner",
+                description: "Anchor segment featuring an exclusive interview with the Mayor of Macomb, Mike Inman, the Noises Off Show Director, and WIU President Kristi Mindrup.",
+                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+            }
+        ];
+
+        const radioBroadcastsData = [
+            {
+                title: "88.3 The Dog - Host Segment",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "A highlight collection of my live radio shows, music transitions, and student life discussions produced as a radio host at Western Illinois University.",
+                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+            },
+            {
+                title: "Radio Interview / Discussion",
+                show: "88.3 The Dog • WIUS Macomb",
+                description: "An engaging radio interview and discussion segment covering local events and university news.",
+                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+            }
+        ];
         
         const volunteerRoles = [
             { role: "Living Room RSS", date: "Jul 2025 – Present", details: ["Volunteered 25 hours providing peer support and assistance in the NAMI Living Room program."] },
@@ -690,7 +768,8 @@
             const dNav = document.getElementById('desktop-nav-links');
             const mNav = document.getElementById('mobile-nav-links');
             sections.forEach(item => {
-                const linkHTML = `<a href="#${item.toLowerCase()}" class="font-medium transition-colors text-slate-200 hover:text-blue-400 nav-link-item block w-full text-left px-3 py-3 md:px-0 md:py-0 md:inline md:w-auto text-slate-700 md:text-slate-200 hover:bg-blue-50 md:hover:bg-transparent md:hover:text-blue-400 rounded md:rounded-none">${item}</a>`;
+                const id = item.toLowerCase().replace(/\s+/g, '-');
+                const linkHTML = `<a href="#${id}" class="font-medium transition-colors text-slate-200 hover:text-blue-400 nav-link-item block w-full text-left px-3 py-3 md:px-0 md:py-0 md:inline md:w-auto text-slate-700 md:text-slate-200 hover:bg-blue-50 md:hover:bg-transparent md:hover:text-blue-400 rounded md:rounded-none">${item}</a>`;
                 dNav.insertAdjacentHTML('beforeend', linkHTML.replace('block w-full text-left px-3 py-3 text-slate-700 hover:bg-blue-50', '')); // Strip mobile classes for desktop
                 mNav.insertAdjacentHTML('beforeend', linkHTML);
             });
@@ -788,6 +867,34 @@
                 `;
                 container.insertAdjacentHTML('beforeend', expHTML);
             });
+        }
+
+        function renderNewsPackages() {
+            const container = document.getElementById('news-packages-container');
+            container.innerHTML = newsPackagesData.map(pkg => `
+                <div class="bg-purple-950 p-6 rounded-2xl shadow-lg border border-purple-700/50 hover:border-yellow-400/80 transition-colors">
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-800 mb-5 relative group shadow-md border border-purple-800">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">${pkg.title}</h4>
+                    <p class="text-sm font-bold text-yellow-400 mb-3 uppercase tracking-wide">${pkg.show}</p>
+                    <p class="text-sm text-purple-200 leading-relaxed">${pkg.description}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderRadioBroadcasts() {
+            const container = document.getElementById('radio-broadcasts-container');
+            container.innerHTML = radioBroadcastsData.map(pkg => `
+                <div class="bg-purple-950 p-6 rounded-2xl shadow-lg border border-purple-700/50 hover:border-yellow-400/80 transition-colors">
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-800 mb-5 relative group shadow-md border border-purple-800">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2">${pkg.title}</h4>
+                    <p class="text-sm font-bold text-yellow-400 mb-3 uppercase tracking-wide">${pkg.show}</p>
+                    <p class="text-sm text-purple-200 leading-relaxed">${pkg.description}</p>
+                </div>
+            `).join('');
         }
 
         let currentResumeKey = 'socialMedia';
@@ -930,6 +1037,8 @@
             renderAwards();
             renderRecommendations();
             renderExperience();
+            renderNewsPackages();
+            renderRadioBroadcasts();
             renderResumeTabs();
             renderActiveResume();
             lucide.createIcons();
