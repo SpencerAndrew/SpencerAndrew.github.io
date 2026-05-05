@@ -12,14 +12,6 @@
         /* Hide scrollbar for the awards section but keep functionality */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        @keyframes flash-red {
-            0%, 100% { background-color: rgba(127, 29, 29, 0.4); border-color: rgba(248, 113, 113, 0.3); box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
-            50% { background-color: rgba(153, 27, 27, 0.7); border-color: rgba(248, 113, 113, 0.8); box-shadow: 0 0 40px rgba(239, 68, 68, 0.6); }
-        }
-        .flash-red-active {
-            animation: flash-red 1.5s infinite ease-in-out;
-        }
 
         /* Google Translate Widget Styling */
         .goog-te-banner-frame.skiptranslate { display: none !important; } 
@@ -123,54 +115,6 @@
                         </button>
                     </div>
 
-                    <!-- Countdown Timer Section -->
-                    <div id="countdown-container" class="mt-16 bg-slate-800/60 border border-amber-500/30 rounded-2xl p-6 md:p-8 backdrop-blur-md max-w-3xl mx-auto shadow-2xl relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-red-500/5 opacity-50"></div>
-                        <div class="relative z-10">
-                            <div class="flex items-center justify-center gap-3 mb-6">
-                                <i id="cd-icon" data-lucide="timer" class="text-amber-400 animate-pulse w-7 h-7"></i>
-                                <h3 id="cd-title" class="text-amber-400 font-extrabold text-xl sm:text-2xl tracking-widest uppercase">Countdown until Welfare</h3>
-                            </div>
-                            
-                            <div class="flex flex-wrap justify-center items-end gap-2 sm:gap-4 my-6 text-white font-mono">
-                                <div class="flex flex-col items-center">
-                                    <span id="cd-days" class="text-3xl sm:text-5xl font-black bg-slate-900/80 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-700/50 shadow-inner">0</span>
-                                    <span class="text-[10px] sm:text-xs text-slate-400 mt-2 uppercase tracking-widest font-sans">Days</span>
-                                </div>
-                                <span class="text-2xl sm:text-4xl font-bold text-slate-600 mb-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <span id="cd-hours" class="text-3xl sm:text-5xl font-black bg-slate-900/80 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-700/50 shadow-inner">00</span>
-                                    <span class="text-[10px] sm:text-xs text-slate-400 mt-2 uppercase tracking-widest font-sans">Hours</span>
-                                </div>
-                                <span class="text-2xl sm:text-4xl font-bold text-slate-600 mb-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <span id="cd-minutes" class="text-3xl sm:text-5xl font-black bg-slate-900/80 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-700/50 shadow-inner">00</span>
-                                    <span class="text-[10px] sm:text-xs text-slate-400 mt-2 uppercase tracking-widest font-sans">Mins</span>
-                                </div>
-                                <span class="text-2xl sm:text-4xl font-bold text-slate-600 mb-6">:</span>
-                                <div class="flex flex-col items-center">
-                                    <span id="cd-seconds" class="text-3xl sm:text-5xl font-black bg-slate-900/80 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-700/50 shadow-inner">00</span>
-                                    <span class="text-[10px] sm:text-xs text-slate-400 mt-2 uppercase tracking-widest font-sans">Secs</span>
-                                </div>
-                                <span class="text-2xl sm:text-4xl font-bold text-slate-600 mb-6">.</span>
-                                <div class="flex flex-col items-center">
-                                    <span id="cd-milliseconds" class="text-3xl sm:text-5xl font-black bg-slate-900/80 px-3 sm:px-4 py-2 sm:py-3 rounded-xl border border-slate-700/50 text-amber-400 w-[70px] sm:w-[100px] text-center shadow-inner">000</span>
-                                    <span class="text-[10px] sm:text-xs text-slate-400 mt-2 uppercase tracking-widest font-sans">Ms</span>
-                                </div>
-                            </div>
-
-                            <div id="cd-quote" class="text-sm sm:text-base text-slate-300 italic leading-relaxed mt-6 bg-slate-900/40 p-5 rounded-lg border-l-4 border-amber-500 font-sans text-left space-y-4">
-                                <p>"The job search doesn't have to be this difficult and neither for your tax dollars. I am currently up against three major factors:"</p>
-                                <ul class="list-none space-y-2 pl-2 text-sm not-italic text-slate-200">
-                                    <li><strong class="text-amber-400">1.</strong> When I turn 26 years old, I will be left completely uninsured.</li>
-                                    <li><strong class="text-amber-400">2.</strong> The job market is more competitive than it has been in the past, making it harder to get hired for a job of any kind, especially degreed jobs.</li>
-                                    <li><strong class="text-amber-400">3.</strong> There are currently more job seekers than open positions, leaving college graduates without jobs and careers more than non-degreed workers in some 20 years.</li>
-                                </ul>
-                                <p>"Be the reason I am able to support myself and to not have to being reliant on other fellow hard-working Americans earned money! Hire me today!"</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- External Portfolio Links -->
                     <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 justify-center w-full max-w-4xl mx-auto relative z-10">
                         <a href="https://spencerandrew.github.io/photography" target="_blank" rel="noopener noreferrer" title="Site under construction" class="group relative px-6 py-3 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-50 font-semibold rounded-lg backdrop-blur-sm border-2 border-dashed border-amber-400/60 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20 overflow-hidden">
@@ -206,6 +150,41 @@
                             <span class="relative z-10">The Record</span>
                         </a>
                     </div>
+
+                    <!-- US Time Zones -->
+                    <div class="mt-16 w-full max-w-4xl mx-auto relative z-10">
+                        <div class="flex items-center justify-center gap-2 mb-4">
+                            <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Live US Time Zones</span>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Hawaii</h4>
+                                <div id="clock-hawaii" class="text-lg font-mono font-bold text-white">--:--</div>
+                            </div>
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Alaska</h4>
+                                <div id="clock-alaska" class="text-lg font-mono font-bold text-white">--:--</div>
+                            </div>
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Pacific</h4>
+                                <div id="clock-pacific" class="text-lg font-mono font-bold text-white">--:--</div>
+                            </div>
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Mountain</h4>
+                                <div id="clock-mountain" class="text-lg font-mono font-bold text-white">--:--</div>
+                            </div>
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1">Central</h4>
+                                <div id="clock-central" class="text-lg font-mono font-bold text-blue-100">--:--</div>
+                            </div>
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                                <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Eastern</h4>
+                                <div id="clock-eastern" class="text-lg font-mono font-bold text-white">--:--</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -528,6 +507,27 @@
                 </div>
 
                 <div id="written-work-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Market Reality Section -->
+        <section id="job-market" class="py-20 bg-slate-900 border-b-8 border-rose-600 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-rose-500 font-semibold uppercase tracking-wider">
+                    <i data-lucide="trending-down" class="w-6 h-6"></i>
+                    <h2>The Job Market Landscape</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Understanding the Current Climate</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        A collection of recent news reports and analyses highlighting the unprecedented challenges, competitiveness, and realities of the modern United States job market.
+                    </p>
+                </div>
+
+                <div id="job-market-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Populated by JS -->
                 </div>
             </div>
@@ -890,7 +890,16 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'GMM Packages', 'Radio Broadcasts', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'GMM Packages', 'Radio Broadcasts', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+
+        const jobMarketVideosData = [
+            { title: "The Reality of the Job Market", show: "Market Insight", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
+            { title: "Navigating the Hiring Process", show: "Market Insight", description: "An overview of how the job market has shifted in recent times.", youtubeId: "-ozTWIMUDZ8" },
+            { title: "Economic Shifts and Employment", show: "Market Insight", description: "Understanding the macroeconomic factors affecting entry-level and professional hiring.", youtubeId: "KW067woSxws" },
+            { title: "The Silent Struggles of Job Seekers", show: "Market Insight", description: "Highlighting the disconnect between open positions and actual hiring rates.", youtubeId: "MG1I8fQp43Y" },
+            { title: "Why Getting Hired Takes So Long", show: "Market Insight", description: "A deep dive into modern interview processes and application volume.", youtubeId: "-FAYkoAeTVU" },
+            { title: "The Future of Work and Hiring", show: "Market Insight", description: "Perspectives on where the job market is heading and how to adapt.", youtubeId: "YmU9xtnpGtk" }
+        ];
 
         const newsPackagesData = [
             {
@@ -1107,6 +1116,12 @@
             },
             {
                 title: "Journalism Article Placeholder",
+                category: "Article",
+                description: "",
+                link: "#" // <-- Replace with your document link
+            },
+            {
+                title: "Journalism Article Placeholder 2",
                 category: "Article",
                 description: "",
                 link: "#" // <-- Replace with your document link
@@ -1371,6 +1386,20 @@
             `).join('');
         }
 
+        function renderJobMarketVideos() {
+            const container = document.getElementById('job-market-container');
+            container.innerHTML = jobMarketVideosData.map(pkg => `
+                <div class="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 hover:border-rose-500/50 transition-colors">
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-900 mb-5 relative group shadow-md border border-slate-700">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2 leading-tight">${pkg.title}</h4>
+                    <p class="text-xs font-bold text-rose-400 mb-3 uppercase tracking-wide">${pkg.show}</p>
+                    <p class="text-sm text-slate-400 leading-relaxed">${pkg.description}</p>
+                </div>
+            `).join('');
+        }
+
         let currentResumeKey = 'socialMedia';
 
         function renderResumeTabs() {
@@ -1517,6 +1546,7 @@
             renderTiktokChallenges();
             renderSocialMediaSamples();
             renderWrittenWork();
+            renderJobMarketVideos();
             renderResumeTabs();
             renderActiveResume();
             lucide.createIcons();
@@ -1587,42 +1617,31 @@
             document.getElementById('experienceFilter').addEventListener('change', (e) => {
                 renderExperience(e.target.value);
             });
-            
-            // Countdown Logic
-            const targetDate = new Date("2027-01-29T00:00:00").getTime();
-            const cdContainer = document.getElementById('countdown-container');
-            const cdTitle = document.getElementById('cd-title');
-            const cdIcon = document.getElementById('cd-icon');
-            const cdMs = document.getElementById('cd-milliseconds');
-            const cdQuote = document.getElementById('cd-quote');
-            let isPastWelfare = false;
 
-            setInterval(() => {
-                const now = new Date().getTime();
-                let difference = targetDate - now;
+            // Clocks Logic
+            function updateClocks() {
+                const now = new Date();
+                const options = { hour: 'numeric', minute: '2-digit', hour12: true };
                 
-                if (difference <= 0) {
-                    difference = Math.abs(difference); // Reverses math to count upwards
-                    
-                    // Trigger red visual styling
-                    if (!isPastWelfare) {
-                        isPastWelfare = true;
-                        cdTitle.innerText = "Time Elapsed On Welfare";
-                        cdContainer.classList.add('flash-red-active');
-                        cdContainer.classList.remove('bg-slate-800/60', 'border-amber-500/30');
-                        cdTitle.classList.replace('text-amber-400', 'text-red-400');
-                        cdIcon.classList.replace('text-amber-400', 'text-red-400');
-                        cdMs.classList.replace('text-amber-400', 'text-red-400');
-                        cdQuote.classList.replace('border-amber-500', 'border-red-500');
+                const tzMap = {
+                    'clock-hawaii': 'Pacific/Honolulu',
+                    'clock-alaska': 'America/Anchorage',
+                    'clock-pacific': 'America/Los_Angeles',
+                    'clock-mountain': 'America/Denver',
+                    'clock-central': 'America/Chicago',
+                    'clock-eastern': 'America/New_York'
+                };
+
+                for (const [id, tz] of Object.entries(tzMap)) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: tz });
                     }
                 }
-
-                document.getElementById('cd-days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24));
-                document.getElementById('cd-hours').innerText = String(Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-                document.getElementById('cd-minutes').innerText = String(Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-                document.getElementById('cd-seconds').innerText = String(Math.floor((difference % (1000 * 60)) / 1000)).padStart(2, '0');
-                document.getElementById('cd-milliseconds').innerText = String(Math.floor(difference % 1000)).padStart(3, '0');
-            }, 10);
+            }
+            
+            updateClocks();
+            setInterval(updateClocks, 1000);
         });
 
         // --- GEMINI API LOGIC (Vanilla JS) ---
