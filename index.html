@@ -158,29 +158,37 @@
                             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Live US Time Zones</span>
                         </div>
                         <div class="flex flex-wrap justify-center gap-3">
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Hawaii</h4>
-                                <div id="clock-hawaii" class="text-lg font-mono font-bold text-white">--:--</div>
+                                <div id="clock-hawaii" class="text-lg font-mono font-bold text-white">--:--:--</div>
                             </div>
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Alaska</h4>
-                                <div id="clock-alaska" class="text-lg font-mono font-bold text-white">--:--</div>
+                                <div id="clock-alaska" class="text-lg font-mono font-bold text-white">--:--:--</div>
                             </div>
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Pacific</h4>
-                                <div id="clock-pacific" class="text-lg font-mono font-bold text-white">--:--</div>
+                                <div id="clock-pacific" class="text-lg font-mono font-bold text-white">--:--:--</div>
                             </div>
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Mountain</h4>
-                                <div id="clock-mountain" class="text-lg font-mono font-bold text-white">--:--</div>
+                                <div id="clock-mountain" class="text-lg font-mono font-bold text-white">--:--:--</div>
                             </div>
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1">Central</h4>
-                                <div id="clock-central" class="text-lg font-mono font-bold text-blue-100">--:--</div>
+                                <div id="clock-central" class="text-lg font-mono font-bold text-blue-100">--:--:--</div>
                             </div>
-                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[110px] text-center shadow-lg">
+                            <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 rounded-xl px-4 py-3 min-w-[130px] text-center shadow-lg">
                                 <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Eastern</h4>
-                                <div id="clock-eastern" class="text-lg font-mono font-bold text-white">--:--</div>
+                                <div id="clock-eastern" class="text-lg font-mono font-bold text-white">--:--:--</div>
+                            </div>
+                        </div>
+
+                        <!-- Live Date Display -->
+                        <div class="mt-6 text-center">
+                            <div id="current-date" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/40 border border-slate-700/50 rounded-lg backdrop-blur-sm text-sm font-medium text-slate-300 shadow-sm transition-colors hover:bg-slate-800/60">
+                                <i data-lucide="calendar" class="w-4 h-4 text-blue-400"></i>
+                                <span>--</span>
                             </div>
                         </div>
                     </div>
@@ -1621,7 +1629,8 @@
             // Clocks Logic
             function updateClocks() {
                 const now = new Date();
-                const options = { hour: 'numeric', minute: '2-digit', hour12: true };
+                const timeOptions = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
+                const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
                 
                 const tzMap = {
                     'clock-hawaii': 'Pacific/Honolulu',
@@ -1635,8 +1644,13 @@
                 for (const [id, tz] of Object.entries(tzMap)) {
                     const el = document.getElementById(id);
                     if (el) {
-                        el.innerText = now.toLocaleTimeString('en-US', { ...options, timeZone: tz });
+                        el.innerText = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: tz });
                     }
+                }
+
+                const dateEl = document.querySelector('#current-date span');
+                if (dateEl) {
+                    dateEl.innerText = now.toLocaleDateString('en-US', dateOptions);
                 }
             }
             
