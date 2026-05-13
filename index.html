@@ -431,6 +431,30 @@
             </div>
         </section>
 
+        <!-- Transcripts Section -->
+        <section id="transcripts" class="py-16 bg-purple-950 border-t border-purple-800 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                    <h2>News Package Transcripts</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-3xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Behind the Reporting</h3>
+                    <p class="text-purple-200 leading-relaxed mb-8">
+                        Explore a selection of written transcripts from my on-air reporting. You can read through the scripts below or use my AI Assistant to summarize key stories, analyze my reporting style, and extract highlights!
+                    </p>
+                    <button onclick="openTranscriptChat()" class="px-8 py-4 bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold rounded-full transition-all shadow-lg hover:shadow-fuchsia-500/30 flex items-center justify-center gap-2 mx-auto">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i> Ask AI About My Transcripts
+                    </button>
+                </div>
+
+                <div id="transcripts-container" class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl no-scrollbar">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
         <!-- Good Morning Macomb Packages Section -->
         <section id="gmm-packages" class="py-16 bg-purple-900 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -914,15 +938,15 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'GMM Packages', 'Radio Broadcasts', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
 
         const jobMarketVideosData = [
-            { title: "The Reality of the Job Market", show: "Market Insight", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
-            { title: "Navigating the Hiring Process", show: "Market Insight", description: "An overview of how the job market has shifted in recent times.", youtubeId: "-ozTWIMUDZ8" },
-            { title: "Economic Shifts and Employment", show: "Market Insight", description: "Understanding the macroeconomic factors affecting entry-level and professional hiring.", youtubeId: "KW067woSxws" },
-            { title: "The Silent Struggles of Job Seekers", show: "Market Insight", description: "Highlighting the disconnect between open positions and actual hiring rates.", youtubeId: "MG1I8fQp43Y" },
-            { title: "Why Getting Hired Takes So Long", show: "Market Insight", description: "A deep dive into modern interview processes and application volume.", youtubeId: "-FAYkoAeTVU" },
-            { title: "The Future of Work and Hiring", show: "Market Insight", description: "Perspectives on where the job market is heading and how to adapt.", youtubeId: "YmU9xtnpGtk" },
+            { title: "The Reality of the Job Market", show: "The Infographics Show", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
+            { title: "Navigating the Hiring Process", show: "CNBC", description: "An overview of how the job market has shifted in recent times.", youtubeId: "-ozTWIMUDZ8" },
+            { title: "Economic Shifts and Employment", show: "CNBC", description: "Understanding the macroeconomic factors affecting entry-level and professional hiring.", youtubeId: "KW067woSxws" },
+            { title: "The Silent Struggles of Job Seekers", show: "CNBC", description: "Highlighting the disconnect between open positions and actual hiring rates.", youtubeId: "MG1I8fQp43Y" },
+            { title: "Why Getting Hired Takes So Long", show: "CNBC", description: "A deep dive into modern interview processes and application volume.", youtubeId: "-FAYkoAeTVU" },
+            { title: "The Future of Work and Hiring", show: "CNBC Make It", description: "Perspectives on where the job market is heading and how to adapt.", youtubeId: "YmU9xtnpGtk" },
             { title: "Why Gen Z is getting fired after being hired", show: "USA TODAY", description: "An interview with NYU professor Susie Welch discussing the disconnect in values between recent graduates and employers, plus the impact of AI on entry-level jobs.", youtubeId: "7SrVX4FTFWc" },
             { title: "Americans Are Applying Everywhere…", show: "A Homestead Journey", description: "A compilation of real stories from everyday Americans sharing their frustrations with endless applications, ghosting, and the realities of the current job market.", youtubeId: "njC55umgjvI" }
         ];
@@ -938,7 +962,7 @@
                 title: "Irish Academic Advisor Profile",
                 show: "NEWS3 • IBS Award Finalist",
                 description: "A profile highlighting an Irish Academic Advisor, his immigration journey to the United States, and his career at WIU. Placed 2nd for Best News Package at IBS.",
-                youtubeId: "dQw4w9WgXcQ" // <-- Replace with your actual YouTube video ID
+                youtubeId: "dQw4w9WgXcQ" 
             },
             
             // --- Fall 2023 ---
@@ -983,11 +1007,34 @@
             { title: "Two Factor, Scams, and Technology", show: "NEWS3 • Fall 2025", description: "News package produced for NEWS3.", youtubeId: "dQw4w9WgXcQ" }
         ];
 
+        const transcriptsData = [
+            {
+                title: "Irish Academic Advisor Profile",
+                date: "Spring 2024",
+                content: "ANCHOR: Leaving your home country is never easy, but one WIU advisor found a new home right here in Macomb. Spencer Andrew has the story. \n\nSPENCER: Niall Hartnett moved from Ireland to the US with a dream. Now, he helps students navigate the complexities of higher education. Hartnett says the sense of community at Western Illinois University reminds him of home. 'It’s the people that make the place,' Hartnett told NEWS3. He hopes his journey inspires international students to chase their own ambitions without fear..."
+            },
+            {
+                title: "Performing Arts Building Progress",
+                date: "Spring 2025",
+                content: "ANCHOR: A long-awaited addition to the WIU campus is finally taking shape. \n\nSPENCER: The sound of construction is music to the ears of WIU's College of Fine Arts and Communication. Former Dean Billy Clow says the new Performing Arts facility is on schedule and will provide state-of-the-art resources for theater, music, and broadcasting students alike. The multi-million dollar project is expected to become a cultural hub for the entire Macomb community, drawing in acts from across the Midwest..."
+            },
+            {
+                title: "Mayor Mike Inman Profile",
+                date: "Fall 2024",
+                content: "ANCHOR: Local leadership is facing new challenges as economic shifts impact rural Illinois. \n\nSPENCER: Macomb Mayor Mike Inman has seen the city through thick and thin. In our exclusive sit-down, he discussed local economic development, the ongoing partnership with Western Illinois University, and strategies to retain graduating students in the local workforce. Mayor Inman emphasized that 'Macomb's future is directly tied to the success and integration of WIU students into our local economy...'"
+            },
+            {
+                title: "Winter and Climate",
+                date: "Fall 2023",
+                content: "ANCHOR: Grab your coats, Macomb. A harsh winter is on the horizon. \n\nSPENCER: With temperatures dropping, Macomb residents are bracing for a bitter winter. Meteorologists warn that shifting climate patterns could bring unexpected snowfall amounts and rapid temperature fluctuations. Local emergency services recommend winterizing vehicles and preparing home emergency kits before the first major freeze hits McDonough County. I spoke with local hardware store owners who say shovels and salt are already flying off the shelves..."
+            }
+        ];
+
         const gmmPackagesData = [
             {
                 title: "Good Morning Macomb - Mayoral Interview",
                 show: "GMM • IBS Winner",
-                description: "Anchor segment featuring an exclusive interview with the Mayor of Macomb, Mike Inman, the Noises Off Show Director, and WIU President Kristi Mindrup.",
+                description: "Anchor segment featuring an exclusive interview with the Mayor of Macomb Illinois, Mike Inman.",
                 youtubeId: "puhUG7j9YwY"
             },
             {
@@ -1144,13 +1191,13 @@
                 title: "Journalism Article Placeholder",
                 category: "Article",
                 description: "",
-                link: "#" // <-- Replace with your document link
+                link: "#" 
             },
             {
                 title: "Journalism Article Placeholder 2",
                 category: "Article",
                 description: "",
-                link: "#" // <-- Replace with your document link
+                link: "#" 
             }
         ];
 
@@ -1200,7 +1247,7 @@
 
         const experiencesData = [
             { company: "The World Today (News Organization)", location: "United States • Remote", color: "blue", roles: [{ title: "Journalist and Founding Member", date: "Jan 2026 – Present", details: ["Freelance journalist contributing to a modern news organization."], category: "Broadcasting" }] },
-            { company: "Jewel-Osco", location: "Wheaton, IL • Part-time", color: "rose", roles: [ { title: "Meat Wrapper", date: "Jan 2026 – Present", details: [ "Weigh, wrap, and label meat and poultry products accurately and efficiently for retail display.", "Maintain strict adherence to food safety, sanitation, and hygiene standards in a fast-paced environment.", "Stock and organize display cases, ensuring product freshness, proper rotation, and visual appeal.", "Provide friendly and prompt customer service, answering inquiries and fulfilling custom counter requests." ], category: "Guest Service" } ] },
+            { company: "Jewel-Osco", location: "Wheaton, IL • Full-Time", color: "rose", roles: [ { title: "Meat Wrapper", date: "Jan 2026 – Present", details: [ "Weigh, wrap, and label meat and poultry products accurately and efficiently for retail display.", "Maintain strict adherence to food safety, sanitation, and hygiene standards in a fast-paced environment.", "Stock and organize display cases, ensuring product freshness, proper rotation, and visual appeal.", "Provide friendly and prompt customer service, answering inquiries and fulfilling custom counter requests." ], category: "Guest Service" } ] },
             { company: "College of DuPage", location: "Glen Ellyn, IL • Hybrid", color: "indigo", roles: [ { title: "Mass Communications Committee of Industry Leaders Student Member Head", date: "Mar 2020 – Mar 2026", details: [ "Invited by Professor Sandy Fries to be the official student committee member of his advisory committee, out of 30,000+ students.", "Collaborated with industry figures including COD professors, heads of Comm at Columbia College & NIU, VP/GM of WGN-TV, former CEO of ABC 7 Chicago, and Frances Hardin (Former CNN White House Correspondent)." ], category: "Broadcasting" }, { title: "Student Participant of COD AMS Club", date: "Aug 2019 – May 2023", details: [], category: "Broadcasting" } ] },
             { company: "Western Illinois University", location: "Macomb, IL • On-site", color: "purple", roles: [ { title: "Student Radio Host at 88.3 The Dog", date: "Sep 2023 – Dec 2025", details: [ "Applied passion and skills for digital communication by creating and delivering engaging content for listeners.", "Collaborated with students and staff to ensure high-quality and professional broadcasting output." ], category: "Broadcasting" }, { title: "NEWS3 Student Member", date: "Sep 2023 – Dec 2025", details: [ "Performed as on-camera talent for the award-winning student news organization, delivering news stories and interviews with confidence.", "Worked as a floor camera operator, capturing high-quality footage and ensuring smooth transitions.", "Met strict broadcast deadlines and collaborated effectively in a fast-paced team environment." ], category: "Broadcasting" }, { title: "Good Morning Macomb (GMM) TV Show Anchor", date: "Mar 2025 – Apr 2025", details: [ "Served as the first official resurrected host for the return of the Good Morning Macomb show.", "Assisted in the production of three episodes to successfully bring the program back to life." ], category: "Broadcasting" }, { title: "VP of Thompson Hall Government", date: "Feb 2024 – Apr 2024", details: [ "Presided over the General Assembly in the President's absence and managed all standing/ad-hoc committees (Food, Programming, Spirit).", "Provided opportunities for passive and active programming to meet the needs of residents.", "Served as a vocal leader for the largest residence hall on campus." ], category: "Guest Service" }, { title: "Inter-Hall Council Member", date: "Sep 2023 – Jan 2024", details: [ "Elected as student representative for Thompson Hall, convening weekly with fellow delegates to act as the legislative body for campus housing." ], category: "Guest Service" }, { title: "Thompson Hall Student Government Member", date: "Aug 2023 – Jan 2024", details: [ "Planned and organized events promoting community engagement, diversity, and wellness.", "Communicated with hall staff and university administration to address resident issues and concerns.", "Served as a role model and peer mentor for first-year students on FYE floors." ], category: "Guest Service" } ] },
             { company: "NAMI DuPage", location: "Wheaton, IL • On-site", color: "emerald", roles: [ { title: "Social Media Manager (Internship)", date: "May 2025 – Jun 2025", details: [ "Developed and implemented social media strategies to increase brand awareness and drive engagement.", "Managed accounts, created compelling visual content, scheduled, and monitored posts.", "Collaborated cross-functionally, monitored industry trends, managed online reputation, and identified target audiences." ], category: "Social Media" } ] },
@@ -1334,6 +1381,19 @@
                     <h4 class="text-xl font-bold text-white mb-2">${pkg.title}</h4>
                     <p class="text-sm font-bold text-yellow-400 mb-3 uppercase tracking-wide">${pkg.show}</p>
                     <p class="text-sm text-purple-200 leading-relaxed">${pkg.description}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderTranscripts() {
+            const container = document.getElementById('transcripts-container');
+            container.innerHTML = transcriptsData.map(script => `
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-purple-700/50 hover:border-fuchsia-500/50 transition-colors flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4 border-b border-slate-700 pb-3">
+                        <h4 class="text-lg font-bold text-white">${script.title}</h4>
+                        <span class="text-xs font-bold text-fuchsia-400 bg-fuchsia-950/50 px-2 py-1 rounded whitespace-nowrap">${script.date}</span>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed whitespace-pre-line flex-1 font-mono">${script.content}</p>
                 </div>
             `).join('');
         }
@@ -1569,6 +1629,7 @@
             renderRecommendations();
             renderExperience();
             renderNewsPackages();
+            renderTranscripts();
             renderGMMPackages();
             renderRadioBroadcasts();
             renderTiktokChallenges();
@@ -1681,7 +1742,8 @@
         // --- GEMINI API LOGIC (Vanilla JS) ---
         const callGeminiAPI = async (userPrompt, systemPrompt) => {
             const apiKey = ""; // Will be populated at runtime in valid env
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            // Updated API endpoint to the required gemini-3-flash-preview model for best text generation compatibility
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
             const payload = {
                 contents: [{ parts: [{ text: userPrompt }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
@@ -1725,6 +1787,14 @@
             container.scrollTop = container.scrollHeight;
         }
 
+        function openTranscriptChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.remove('hidden');
+            const inputEl = document.getElementById('chatInput');
+            inputEl.value = "Can you summarize the topics covered in Spencer's news package transcripts?";
+            inputEl.focus();
+        }
+
         document.getElementById('chatForm')?.addEventListener('submit', async (e) => {
             e.preventDefault();
             const inputEl = document.getElementById('chatInput');
@@ -1748,7 +1818,7 @@
             document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
 
             try {
-                const sys = `You are a helpful AI assistant built to represent Spencer Andrew's portfolio. Use ONLY the provided resume data to answer questions from recruiters. Be professional, concise, and enthusiastic. If you do not know the answer based on the data, politely say so and recommend they contact Spencer at spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}`;
+                const sys = `You are a helpful AI assistant built to represent Spencer Andrew's portfolio. Use ONLY the provided resume data and transcripts to answer questions from recruiters. Be professional, concise, and enthusiastic. If you do not know the answer based on the data, politely say so and recommend they contact Spencer at spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}\nTranscripts Data: ${JSON.stringify(transcriptsData)}`;
                 const convo = chatMessages.map(m => `${m.role === 'model' ? 'AI' : 'User'}: ${m.text}`).join('\n');
                 const prompt = `Conversation History:\n${convo}\n\nRespond as the AI assistant to the User's last message.`;
                 
