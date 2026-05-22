@@ -1,0 +1,44 @@
+.backdrop-blur-sm { /* the element was .bg-blue-700\/50.p-8.rounded-2xl.backdrop-blur-sm */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leading-relaxed { /* the element was p.italic.text-lg.mb-4.leading-relaxed */
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.backdrop-blur-sm { /* the element was .bg-blue-700\/50.p-8.rounded-2xl.backdrop-blur-sm */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leading-relaxed { /* the element was p.italic.text-lg.mb-4.leading-relaxed */
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.backdrop-blur-sm { /* the element was .bg-blue-700\/50.p-8.rounded-2xl.backdrop-blur-sm */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leading-relaxed { /* the element was p.italic.text-lg.mb-4.leading-relaxed */
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-top: 0px;
+}
+
+.pr-2 { /* the element was div#awards-container */
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(59, 130, 246) transparent;
+}
