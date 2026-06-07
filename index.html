@@ -274,9 +274,20 @@
                         <p class="text-[10px] font-bold text-orange-400 uppercase tracking-wider mb-1">Hours Spent Applying</p>
                         <div class="text-3xl font-extrabold text-orange-100">199</div>
                     </div>
-                    <div class="text-center md:text-left">
-                        <p class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider mb-1">Avg Salary Applied</p>
-                        <div class="text-3xl font-extrabold text-emerald-100">$41,098<span class="text-lg text-emerald-200/70">.21</span></div>
+                </div>
+
+                <!-- Job Search Live Timer -->
+                <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 md:p-8 text-center mb-8 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-indigo-600/10 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center gap-2 mb-3">
+                            <i data-lucide="timer" class="w-5 h-5 text-blue-400 animate-pulse"></i>
+                            <h4 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Active Time on the Job Hunt</h4>
+                        </div>
+                        <div id="job-search-timer" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tabular-nums font-mono tracking-tight">
+                            <!-- Populated by JS -->
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-bold mt-4 uppercase tracking-widest">Tracking since October 25, 2025</p>
                     </div>
                 </div>
 
@@ -300,6 +311,31 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Medical Debt Analytics Teaser Module -->
+            <div class="mt-8 bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden group max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center min-h-[250px]">
+                <div class="absolute inset-0 bg-gradient-to-br from-rose-900/10 via-transparent to-slate-900/50 z-0"></div>
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 to-pink-500 opacity-50"></div>
+                
+                <div class="relative z-10 flex flex-col items-center w-full">
+                    <div class="p-4 bg-slate-800/80 rounded-full border border-slate-700/50 mb-5 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="lock" class="w-8 h-8 text-rose-400"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-3">Medical Debt Analytics</h3>
+                    <p class="text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
+                        A transparent, data-driven look into the realities of navigating the US healthcare system and managing medical expenses.
+                    </p>
+                    <div class="inline-flex items-center gap-2 px-6 py-3 bg-rose-500/10 border border-rose-500/30 rounded-full text-rose-300 text-sm font-bold uppercase tracking-widest shadow-sm">
+                        <i data-lucide="calendar-clock" class="w-[18px] h-[18px]"></i> Releasing Early 2027
+                    </div>
+                </div>
+                
+                <!-- Background decorative icon -->
+                <div class="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500 z-0 pointer-events-none">
+                    <i data-lucide="receipt" class="w-64 h-64 text-rose-500"></i>
+                </div>
+            </div>
+            
         </section>
 
         <!-- My Journey / Locations Section -->
@@ -367,8 +403,8 @@
                     <!-- City Spotlight Graphics -->
                     <div class="order-first lg:order-last lg:col-span-2 w-full flex flex-col gap-8">
                         
-                        <!-- Wheaton & DuPage Row -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Wheaton, DuPage, & Illinois Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                             
                             <!-- Wheaton Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
@@ -455,6 +491,59 @@
                                             <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Average House Cost</p>
                                             <p class="text-xl font-extrabold text-slate-900">$415,200</p>
                                             <p class="text-sm text-slate-600 mt-1">Consistently ranked as one of the healthiest and most affluent counties in Illinois.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Illinois Spotlight Graphic -->
+                            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
+                                <div class="h-48 overflow-hidden relative">
+                                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80" alt="Illinois State Skyline" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-sky-900/90 via-sky-900/40 to-transparent"></div>
+                                    <div class="absolute bottom-4 left-6">
+                                        <h3 class="text-3xl font-bold text-white tracking-wide flex items-center gap-2">Illinois <i data-lucide="map" class="text-sky-400 w-6 h-6"></i></h3>
+                                        <p class="text-sky-200 text-sm font-medium mt-1">The Prairie State</p>
+                                    </div>
+                                </div>
+                                <div class="p-6 sm:p-8 space-y-6">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="flex items-start gap-3">
+                                            <div class="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0"><i data-lucide="users" class="w-5 h-5"></i></div>
+                                            <div>
+                                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Population</p>
+                                                <p class="text-lg sm:text-xl font-extrabold text-slate-900">12.5M</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="p-2 bg-sky-50 text-sky-600 rounded-lg shrink-0"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+                                            <div>
+                                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Capital</p>
+                                                <p class="text-base sm:text-lg font-extrabold text-slate-900 pt-0.5">Springfield</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="flex items-start gap-3">
+                                            <div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0"><i data-lucide="wallet" class="w-5 h-5"></i></div>
+                                            <div>
+                                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Med. Income</p>
+                                                <p class="text-lg sm:text-xl font-extrabold text-slate-900">$78,433</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="p-2 bg-amber-50 text-amber-600 rounded-lg shrink-0"><i data-lucide="calendar" class="w-5 h-5"></i></div>
+                                            <div>
+                                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Statehood</p>
+                                                <p class="text-lg sm:text-xl font-extrabold text-slate-900">1818</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="p-3 bg-sky-50 text-sky-600 rounded-xl shrink-0"><i data-lucide="map-pinned" class="w-6 h-6"></i></div>
+                                        <div>
+                                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">State Profile</p>
+                                            <p class="text-sm text-slate-600 mt-1">A diverse midwestern hub balancing the global economic powerhouse of Chicago with expansive agricultural heartlands.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -2006,6 +2095,34 @@
             
             updateClocks();
             setInterval(updateClocks, 1000);
+
+            // Job Search Timer Logic
+            const searchStartDate = new Date('2025-10-25T00:00:00');
+            const searchTimerEl = document.getElementById('job-search-timer');
+            if (searchTimerEl) {
+                function updateSearchTimer() {
+                    const now = new Date();
+                    const diff = Math.max(0, now - searchStartDate);
+                    
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+                    const m = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
+                    const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+                    const ms = Math.floor(diff % 1000).toString().padStart(3, '0');
+
+                    searchTimerEl.innerHTML = `
+                        <div class="flex items-baseline justify-center flex-wrap gap-y-2">
+                            <span class="min-w-[2ch] text-right">${d}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">d</span>
+                            <span class="min-w-[2ch] text-right">${h}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">h</span>
+                            <span class="min-w-[2ch] text-right">${m}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">m</span>
+                            <span class="min-w-[2ch] text-right text-slate-200">${s}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">s</span>
+                            <span class="min-w-[3ch] text-right text-blue-400">${ms}</span><span class="text-sm md:text-base text-blue-500/80 ml-1 font-sans tracking-normal uppercase">ms</span>
+                        </div>
+                    `;
+                    requestAnimationFrame(updateSearchTimer);
+                }
+                requestAnimationFrame(updateSearchTimer);
+            }
         });
 
         // --- GEMINI API LOGIC (Vanilla JS) ---
