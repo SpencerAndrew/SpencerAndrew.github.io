@@ -1031,6 +1031,31 @@
             </div>
         </section>
 
+        <!-- The World Today Section -->
+        <section id="the-world-today" class="pt-16 pb-20 bg-slate-900 relative overflow-hidden print:hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-emerald-500 via-amber-500 to-rose-600"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-emerald-900/20 to-rose-900/20 z-0"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex items-center justify-center gap-3 mb-12 font-semibold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-rose-400">
+                    <i data-lucide="globe" class="w-6 h-6 text-emerald-400"></i>
+                    <h2>The World Today News</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Independent Journalism & Reports</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        A curated collection of my independent news packages, investigative reports, and media coverage produced for The World Today News Organization.
+                    </p>
+                </div>
+
+                <div id="twt-packages-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <!-- Populated by JS -->
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-rose-600 via-amber-500 via-emerald-500 to-blue-600"></div>
+        </section>
+
         <!-- Other Projects Section -->
         <section id="other-projects" class="pt-16 pb-20 bg-slate-800 border-b-8 border-cyan-500 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1436,7 +1461,7 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'Other Projects', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
 
         const jobMarketVideosData = [
             { title: "The Reality of the Job Market", show: "The Infographics Show", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
@@ -1712,6 +1737,21 @@
                 category: "Article",
                 description: "",
                 link: "#" 
+            }
+        ];
+
+        const twtPackagesData = [
+            {
+                title: "TWT News Package Placeholder 1",
+                show: "The World Today",
+                description: "An independent news package focusing on current events.",
+                youtubeId: "dQw4w9WgXcQ"
+            },
+            {
+                title: "TWT News Package Placeholder 2",
+                show: "The World Today",
+                description: "In-depth investigative report for The World Today.",
+                youtubeId: "dQw4w9WgXcQ"
             }
         ];
 
@@ -2038,6 +2078,21 @@
             `).join('');
         }
 
+        function renderTWTPackages() {
+            const container = document.getElementById('twt-packages-container');
+            container.innerHTML = twtPackagesData.map(pkg => `
+                <div class="bg-slate-950 p-6 rounded-2xl shadow-lg border border-slate-700/50 hover:border-emerald-500/80 transition-all group relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-emerald-500/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-800 mb-5 relative z-10 shadow-md border border-slate-700 group-hover:border-slate-500 transition-colors">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2 leading-tight relative z-10">${pkg.title}</h4>
+                    <p class="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-emerald-400 to-rose-400 mb-3 uppercase tracking-wide relative z-10">${pkg.show}</p>
+                    <p class="text-sm text-slate-400 leading-relaxed relative z-10 flex-1">${pkg.description}</p>
+                </div>
+            `).join('');
+        }
+
         function renderOtherProjects() {
             const container = document.getElementById('other-projects-container');
             container.innerHTML = otherProjectsData.map(project => {
@@ -2237,6 +2292,7 @@
             renderTiktokChallenges();
             renderSocialMediaSamples();
             renderWrittenWork();
+            renderTWTPackages();
             renderOtherProjects();
             renderJobMarketVideos();
             renderResumeTabs();
