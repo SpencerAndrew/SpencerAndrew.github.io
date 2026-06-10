@@ -303,6 +303,61 @@
                     </div>
                 </div>
 
+                <!-- Application Breakdown Tables -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
+                    <!-- Status Table -->
+                    <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl overflow-hidden backdrop-blur-sm">
+                        <div class="bg-slate-800/60 px-5 py-4 border-b border-slate-700/50">
+                            <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                                <i data-lucide="pie-chart" class="w-4 h-4"></i> Application Status
+                            </h4>
+                        </div>
+                        <table class="w-full text-left text-sm text-slate-300">
+                            <thead class="bg-slate-900/50 text-[10px] uppercase tracking-wider text-slate-500">
+                                <tr>
+                                    <th class="px-5 py-3 font-bold">Status</th>
+                                    <th class="px-5 py-3 font-bold text-right">Count</th>
+                                    <th class="px-5 py-3 font-bold text-right">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-700/50">
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Rejected</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Applied</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Offer Received and Accepted</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Offer Received and Rejected</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Interviewing</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">No Answer</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Self-Retracted</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Position Type Table -->
+                    <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl overflow-hidden backdrop-blur-sm">
+                        <div class="bg-slate-800/60 px-5 py-4 border-b border-slate-700/50">
+                            <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-2">
+                                <i data-lucide="briefcase" class="w-4 h-4"></i> Position Type
+                            </h4>
+                        </div>
+                        <table class="w-full text-left text-sm text-slate-300">
+                            <thead class="bg-slate-900/50 text-[10px] uppercase tracking-wider text-slate-500">
+                                <tr>
+                                    <th class="px-5 py-3 font-bold">Type</th>
+                                    <th class="px-5 py-3 font-bold text-right">Count</th>
+                                    <th class="px-5 py-3 font-bold text-right">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-700/50">
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Full-time</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Contract</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Part-time</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Internship</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                                <tr class="hover:bg-slate-700/30 transition-colors"><td class="px-5 py-3">Temporary</td><td class="px-5 py-3 text-right font-mono font-medium text-slate-400">-</td><td class="px-5 py-3 text-right font-mono text-slate-500">-</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <div class="pt-5 border-t border-slate-700/50">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center gap-3 text-slate-400 italic text-xs leading-relaxed">
