@@ -1144,6 +1144,27 @@
             </div>
         </section>
 
+        <!-- AI Coded Apps Section -->
+        <section id="ai-apps" class="pt-16 pb-20 bg-slate-950 border-b-8 border-violet-600 print:hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center gap-3 mb-12 text-violet-500 font-semibold uppercase tracking-wider">
+                    <i data-lucide="bot" class="w-6 h-6"></i>
+                    <h2>AI Coded Web Apps</h2>
+                </div>
+
+                <div class="text-center mb-12 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-3">Prompt Engineering & Development</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        A showcase of interactive web applications I designed, engineered, and deployed using advanced AI models like ChatGPT (GPT-5) and Google AI Studio.
+                    </p>
+                </div>
+
+                <div id="ai-apps-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
         <!-- Job Market Reality Section -->
         <section id="job-market" class="py-20 bg-slate-900 border-b-8 border-rose-600 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1340,6 +1361,31 @@
                 <div id="volunteer-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Populated by JS -->
                 </div>
+
+                <!-- Google Earth Map Embed Space -->
+                <div class="mt-16 bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative">
+                    <div class="px-6 py-5 border-b border-slate-100 flex items-center gap-3 bg-slate-50">
+                        <div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                            <i data-lucide="map" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">National Alliance on Mental Illness (NAMI) Locator</h4>
+                            <p class="text-sm text-slate-500 font-medium">Interactive Google Earth Map of NAMI locations across the United States</p>
+                        </div>
+                    </div>
+                    <div class="aspect-video w-full bg-slate-100 relative group flex items-center justify-center">
+                        <!-- Placeholder Information (Shows if iframe is empty) -->
+                        <div class="text-center p-8 absolute inset-0 flex flex-col items-center justify-center z-0">
+                            <i data-lucide="globe-2" class="w-12 h-12 text-slate-300 mb-3 animate-pulse"></i>
+                            <p class="text-slate-500 font-bold uppercase tracking-wider text-sm mb-1">Google Earth Map Ready</p>
+                            <p class="text-xs text-slate-400 max-w-sm mx-auto">Paste your custom Google Earth/My Maps embed URL into the <code>src=""</code> attribute of the iframe in the code to display your map here.</p>
+                        </div>
+                        
+                        <!-- The Iframe for the Map Embed -->
+                        <iframe class="w-full h-full relative z-10 bg-transparent" src="" title="NAMI Locations Map" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1528,7 +1574,7 @@
     <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
+        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'AI Apps', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
 
         const jobMarketVideosData = [
             { title: "The Reality of the Job Market", show: "The Infographics Show", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
@@ -1824,6 +1870,12 @@
 
         const otherProjectsData = [
             {
+                title: "Spencer Andrew - College of DuPage - First On-Air Performance",
+                category: "On-Air Performance",
+                description: "My very first on-air performance recorded during my time at the College of DuPage, marking the early beginnings of my broadcast journey.",
+                youtubeId: "U0Jv6gTgKjQ"
+            },
+            {
                 title: "Stepping Up To The Plate: Spencer Andrew's Audition",
                 category: "Video Audition",
                 description: "A specialized audition video showcasing my on-camera presence, enthusiasm, and readiness to take on new opportunities.",
@@ -1834,6 +1886,268 @@
                 category: "Radio Advertisement",
                 description: "A student-produced radio advertisement assignment advocating for Western Illinois University students.",
                 youtubeId: "0UwY4ydwXHc"
+            }
+        ];
+
+        const aiAppsData = [
+            {
+                title: "Interactive World Clock",
+                tool: "GPT-5 & Google AI Studio",
+                description: "A dynamic, real-time world clock application featuring interactive UI elements and time zone tracking.",
+                link: "https://chatgpt.com/canvas/shared/68979ba8f2e88191bb769fc6683b3ab0",
+                icon: "clock"
+            },
+            {
+                title: "Pomodoro Focus Timer",
+                tool: "GPT-5 & Google AI Studio",
+                description: "A fully functional productivity timer application designed to boost focus, manage work sessions, and track intervals.",
+                link: "https://chatgpt.com/canvas/shared/68979beae5488191b4ca973b3921c6af",
+                icon: "timer"
+            },
+            {
+                title: "Web Spreadsheet App",
+                tool: "GPT-5 & Google AI Studio",
+                description: "A Microsoft Excel-inspired interactive spreadsheet web application engineered with functioning cells and capabilities.",
+                link: "https://chatgpt.com/canvas/shared/689ccd5fc49481918956fcff9502d900",
+                icon: "table"
+            },
+            {
+                title: "Interactive Flashcard Deck",
+                tool: "GPT-5 & Google AI Studio",
+                description: "A Quizlet-style study application allowing users to interact with flashcards for active recall, studying, and memorization.",
+                link: "https://chatgpt.com/share/69083c16-7be0-8001-8027-66a58caa0360",
+                icon: "layers"
+            },
+            {
+                title: "Job Search Tracker",
+                tool: "GPT-5 & Google AI Studio",
+                description: "A comprehensive, working web application designed specifically to track job applications, statuses, and interview schedules.",
+                link: "https://chatgpt.com/share/69083d94-64c0-8001-bd2a-c983728c2e70",
+                icon: "briefcase"
+            },
+            {
+                title: "Google Gemini Weather",
+                tool: "Google AI Studio",
+                description: "An AI-powered weather forecasting and reporting application built with Gemini.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221FgDrvCxp4cPaBUtySYFYmkq8S-d1HHA2%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "cloud-sun"
+            },
+            {
+                title: "Genius Flash - Quizlet Knockoff",
+                tool: "Google AI Studio",
+                description: "An intelligent flashcard application for active recall and study sessions.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221prdFCR_FntuwdW0TVvFgw01qzShyoBie%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "layers"
+            },
+            {
+                title: "Sound App",
+                tool: "Google AI Studio",
+                description: "A web-based sound manipulation and audio interface tool.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2213SwZf1659P7cTa6-vs1WvspANKfZbuLj%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "music"
+            },
+            {
+                title: "Clock App",
+                tool: "Google AI Studio",
+                description: "A functional, responsive digital clock interface.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221Rg49BoDg7Jsgq76dppFA6SywrTEBKC1A%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "clock"
+            },
+            {
+                title: "Clock App #2",
+                tool: "Google AI Studio",
+                description: "An alternative iteration of a responsive digital clock application.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221oVpaXle1IWKBa8EzMrNcVEkyrS_omeRC%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "clock-4"
+            },
+            {
+                title: "iOS Calendar App",
+                tool: "Google AI Studio",
+                description: "A web-based recreation of the iOS Calendar interface with AI integrations.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221Hr4d-HOOftjQFAf2tzMWEH8nUgaolxbJ%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "calendar"
+            },
+            {
+                title: "Health App",
+                tool: "Google AI Studio",
+                description: "A health and fitness tracking dashboard mimicking native mobile apps.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221stRH-QDB4JaIPW0OSjmPBozqyt8CIR6Y%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "heart-pulse"
+            },
+            {
+                title: "AI Budgeting App",
+                tool: "Google AI Studio",
+                description: "A personal finance tool leveraging AI for budget tracking and suggestions.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2218HbLJabkPER0TqHzOh0CHgXmQ2zHxlsj%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "wallet"
+            },
+            {
+                title: "NAMI DuPage Living Room Report Generator",
+                tool: "Google AI Studio",
+                description: "An automated reporting tool tailored for NAMI DuPage's Living Room program.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221Ns_cq9D7nB1kJYSjwzCF560HKjLhEqxT%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "file-text"
+            },
+            {
+                title: "AI News Graphics Generator",
+                tool: "Google AI Studio",
+                description: "A broadcast utility that generates on-screen graphics for news segments.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2213ars6C3xOTVrTtW8RiLypCnSPLq0ymeL%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "image"
+            },
+            {
+                title: "Fox News Ticker App",
+                tool: "Google AI Studio",
+                description: "A broadcast-style scrolling lower-third news ticker simulation.",
+                link: "https://ai.studio/apps/drive/1CxxqBU_Mvj0VxpfQUfIwZPFGho_j97YO",
+                icon: "tv"
+            },
+            {
+                title: "GeoNews Globe App",
+                tool: "Google AI Studio",
+                description: "An interactive 3D globe visualization for mapping global news events.",
+                link: "https://ai.studio/apps/drive/1bnh6ylVU284gw9Mun-7PEj_dtoeqNwUd",
+                icon: "globe"
+            },
+            {
+                title: "Breaking Weather Alert System - TWC",
+                tool: "Google AI Studio",
+                description: "A simulated Weather Channel breaking alert system and dashboard.",
+                link: "https://ai.studio/apps/drive/1Gbr4urknOCU7x0wEPFpJ6Dpf-MNHkoU6",
+                icon: "alert-triangle"
+            },
+            {
+                title: "React Apple Watch Faces",
+                tool: "Google AI Studio",
+                description: "Web-based interactive recreations of popular Apple Watch faces.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221dtKe6E4_AgNBNGFep1j04zpSzRiZ6_ty%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "watch"
+            },
+            {
+                title: "TruthAI: Lie Detection Assistant",
+                tool: "Google AI Studio",
+                description: "An experimental AI application analyzing text/statements for deception indicators.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2219HWcCw3OLW2hEHp8gmbNj_FXK_yJMi2u%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "scan-face"
+            },
+            {
+                title: "MP3 to MIDI Converter",
+                tool: "Google AI Studio",
+                description: "An audio processing tool that utilizes AI to transcribe MP3 audio into MIDI data.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2211-rC0tmlEa9Sj3P_pfHhWPoz_4XKSZt1%22%5D,%22action%22:%22open%22,%22userId%22:%22105177892041530648736%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "audio-waveform"
+            },
+            {
+                title: "Yellow Light Speed Simulator",
+                tool: "Google AI Studio",
+                description: "A physics-based simulator demonstrating traffic intersection timing.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%2216hYy8maX4WJtmnqaNn8y1mBwPGV7-2Rl%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "car"
+            },
+            {
+                title: "Job Hunt Checklist Generator",
+                tool: "Google AI Studio",
+                description: "A dynamic tool that generates personalized job application strategies and checklists.",
+                link: "https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221Qd0KPr2h6sM-cLQyC7Lr8t2RJFK2_lfa%22%5D,%22action%22:%22open%22,%22userId%22:%22106417721693514893894%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing",
+                icon: "check-square"
+            },
+            {
+                title: "React Excel Clone",
+                tool: "Google AI Studio",
+                description: "A robust, functional spreadsheet application built entirely with React.",
+                link: "https://ai.studio/apps/drive/1QOCI09GRqZorIxrwlF0fbh8rxAYqB1Kb",
+                icon: "table"
+            },
+            {
+                title: "React Word Clone & AI Processor",
+                tool: "Google AI Studio",
+                description: "An AI-augmented word processor with rich text editing capabilities.",
+                link: "https://ai.studio/apps/drive/143TBzmKaXT4T_FjGU8i1PE8JJZ9XgU5v",
+                icon: "file-type-2"
+            },
+            {
+                title: "React Premiere Pro Clone",
+                tool: "Google AI Studio",
+                description: "A web-based non-linear video editing interface prototype.",
+                link: "https://ai.studio/apps/drive/14E6qX7gE09BwgLAEHUSkTqXfPfmBCqRj",
+                icon: "video"
+            },
+            {
+                title: "HydraGuide: Water Tracker",
+                tool: "Google AI Studio",
+                description: "A health tracking app focused on daily hydration metrics.",
+                link: "https://ai.studio/apps/drive/1rNJq8ZeulkCMeWe4TmCvmCovKADmbLKD",
+                icon: "droplet"
+            },
+            {
+                title: "AI Cover Letter Generator App",
+                tool: "Google AI Studio",
+                description: "A tool that drafts targeted, professional cover letters instantly.",
+                link: "https://ai.studio/apps/drive/1pvyTRe7Md6zvzNWpEhRIoCLeXA99NQVI",
+                icon: "file-signature"
+            },
+            {
+                title: "AI Resume Tailor App",
+                tool: "Google AI Studio",
+                description: "An application that optimizes resumes against specific job descriptions.",
+                link: "https://ai.studio/apps/drive/1OyLa66qzZxFFwg4wJ6cIs9mCUIuy6vce",
+                icon: "briefcase"
+            },
+            {
+                title: "USAJobs Portal Website",
+                tool: "Google AI Studio",
+                description: "A front-end recreation of the USAJobs federal employment portal.",
+                link: "https://ai.studio/apps/drive/1vBwI4qVTMfjnyPSK-m72U1rGIJa06eVk",
+                icon: "landmark"
+            },
+            {
+                title: "Ancestry Explorer",
+                tool: "Google AI Studio",
+                description: "A genealogical tool for mapping and exploring family histories.",
+                link: "https://ai.studio/apps/51947ae1-2d95-4932-9627-deff23b90ed6?fullscreenApplet=true",
+                icon: "users"
+            },
+            {
+                title: "AP Scribe",
+                tool: "Google AI Studio",
+                description: "An automated transcription and formatting tool adhering to AP style guidelines.",
+                link: "https://ai.studio/apps/af9d2656-c727-4842-be23-6314ef87a90b?fullscreenApplet=true",
+                icon: "pen-tool"
+            },
+            {
+                title: "OxyHeight: Elevation & Oxygen",
+                tool: "Google AI Studio",
+                description: "A scientific calculator estimating atmospheric oxygen levels at various altitudes.",
+                link: "https://ai.studio/apps/d8e31914-fcbe-4e2d-8eae-aead134ed1ca?fullscreenApplet=true",
+                icon: "mountain"
+            },
+            {
+                title: "ReelGenie",
+                tool: "Google AI Studio",
+                description: "An AI video generation or social media reel scripting assistant.",
+                link: "https://ai.studio/apps/bcab295d-a874-4c5d-8788-307c41ff7638?fullscreenApplet=true",
+                icon: "film"
+            },
+            {
+                title: "Polymarket Politics Report",
+                tool: "Google AI Studio",
+                description: "A data visualization dashboard tracking political prediction markets.",
+                link: "https://ai.studio/apps/0108b158-66a2-4fa4-8b8b-085bb4e51d6b?fullscreenApplet=true",
+                icon: "bar-chart-2"
+            },
+            {
+                title: "US Election Atlas (1789-2024)",
+                tool: "Google AI Studio",
+                description: "A comprehensive historical mapping tool of United States presidential elections.",
+                link: "https://ai.studio/apps/b655d1a6-4789-443f-b197-ee1d029a64cf?fullscreenApplet=true",
+                icon: "map"
+            },
+            {
+                title: "Rent vs. Buy Monte Carlo",
+                tool: "Google AI Studio",
+                description: "A financial modeling tool using Monte Carlo simulations for housing decisions.",
+                link: "https://ai.studio/apps/62f55aad-23e4-4619-a418-928341f8d160?fullscreenApplet=true",
+                icon: "calculator"
             }
         ];
 
@@ -2171,6 +2485,23 @@
             }).join('');
         }
 
+        function renderAIApps() {
+            const container = document.getElementById('ai-apps-container');
+            container.innerHTML = aiAppsData.map(app => `
+                <a href="${app.link}" target="_blank" class="flex flex-col h-full bg-slate-900 p-6 rounded-2xl shadow-lg border border-slate-800 hover:border-violet-500 hover:-translate-y-1 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-slate-800 rounded-lg text-violet-400 group-hover:bg-violet-500 group-hover:text-slate-900 transition-colors">
+                            <i data-lucide="${app.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <i data-lucide="external-link" class="w-5 h-5 text-slate-600 group-hover:text-violet-400 transition-colors"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-2 leading-tight">${app.title}</h4>
+                    <p class="text-[10px] font-bold text-violet-400 mb-3 uppercase tracking-widest flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3 h-3"></i> ${app.tool}</p>
+                    <p class="text-sm text-slate-400 flex-1 leading-relaxed">${app.description}</p>
+                </a>
+            `).join('');
+        }
+
         function renderJobMarketVideos() {
             const container = document.getElementById('job-market-container');
             container.innerHTML = jobMarketVideosData.map(pkg => `
@@ -2340,6 +2671,7 @@
             renderWrittenWork();
             renderTWTPackages();
             renderOtherProjects();
+            renderAIApps();
             renderJobMarketVideos();
             renderResumeTabs();
             renderActiveResume();
