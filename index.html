@@ -363,22 +363,97 @@
                     </div>
                 </div>
 
-                <div class="pt-5 border-t border-slate-700/50">
+                <div class="pt-5 border-t border-slate-700/50 space-y-4">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center gap-3 text-slate-400 italic text-xs leading-relaxed">
                             <i data-lucide="info" class="w-4 h-4 text-slate-500 shrink-0"></i>
                             <p>Analysis based on <span class="text-slate-200 font-semibold">$35/app</span> in lost productivity due to the current US labor market climate.</p>
                         </div>
-                        <div class="text-xs font-mono text-rose-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30">
+                        <div class="text-xs font-mono text-rose-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30 shrink-0">
                             Calculation: $35 × 449 apps
                         </div>
-                      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center gap-3 text-slate-400 italic text-xs leading-relaxed">
                             <i data-lucide="info" class="w-4 h-4 text-slate-500 shrink-0"></i>
                             <p>Hours spent applying is equivalent to <span class="text-slate-200 font-semibold">30 minutes/app.</span></p>
                         </div>
-                        <div class="text-xs font-mono text-orange-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30">
+                        <div class="text-xs font-mono text-orange-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30 shrink-0">
                             Calculation: 30 minutes/app × 449 apps = 13470 minutes / 60 minutes = total hours spent applying
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistical Comparisons Module -->
+                <div class="mt-8 pt-6 border-t border-slate-700/50">
+                    <div class="flex items-center gap-2 mb-6 justify-center md:justify-start">
+                        <span class="p-1.5 bg-amber-500/20 rounded-md text-amber-400">
+                            <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                        </span>
+                        <h4 class="text-sm font-bold text-white uppercase tracking-widest">Events More Likely to Happen to Someone</h4>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-6 text-center md:text-left">For perspective, here are a few events with a higher statistical probability of occurring than my current job search conversion rate (2.00%).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Item 1 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-emerald-500/10 rounded-lg shrink-0 text-emerald-400 mt-0.5">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Getting into Harvard</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">Harvard historically maintains an acceptance rate hovering around 5% (roughly 1 in 20).</span>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-blue-500/10 rounded-lg shrink-0 text-blue-400 mt-0.5">
+                                <i data-lucide="hand" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Being naturally left-handed</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">Approximately 10% to 12% of the global population is left-handed (roughly 1 in 10).</span>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-orange-500/10 rounded-lg shrink-0 text-orange-400 mt-0.5">
+                                <i data-lucide="utensils" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Catching food poisoning</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">The CDC estimates that 16.6% of Americans (1 in 6) get sick from contaminated food annually.</span>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-indigo-500/10 rounded-lg shrink-0 text-indigo-400 mt-0.5">
+                                <i data-lucide="ear" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Trouble hearing frequencies</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">About 14% of adults aged 20 to 69 have some level of speech-frequency hearing loss.</span>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-rose-500/10 rounded-lg shrink-0 text-rose-400 mt-0.5">
+                                <i data-lucide="droplet" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Having a specific blood type</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">Roughly 9% of the population has B-positive blood, making it nearly five times more common than my conversion rate.</span>
+                            </div>
+                        </div>
+                        <!-- Item 6 -->
+                        <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
+                            <div class="p-2 bg-violet-500/10 rounded-lg shrink-0 text-violet-400 mt-0.5">
+                                <i data-lucide="dices" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-slate-200 block mb-1">Rolling a specific number</span>
+                                <span class="text-xs text-slate-400 leading-relaxed">You have a 16.6% chance (1 in 6) of rolling any designated number on a 6-sided die.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
