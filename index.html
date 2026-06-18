@@ -1994,31 +1994,24 @@
         const aiAppsData = [
             {
                 title: "Interactive World Clock",
-                tool: "GPT-5 & Google AI Studio",
+                tool: "GPT-5",
                 description: "A dynamic, real-time world clock application featuring interactive UI elements and time zone tracking.",
                 link: "https://chatgpt.com/canvas/shared/68979ba8f2e88191bb769fc6683b3ab0",
                 icon: "clock"
             },
             {
                 title: "Pomodoro Focus Timer",
-                tool: "GPT-5 & Google AI Studio",
+                tool: "GPT-5",
                 description: "A fully functional productivity timer application designed to boost focus, manage work sessions, and track intervals.",
                 link: "https://chatgpt.com/canvas/shared/68979beae5488191b4ca973b3921c6af",
                 icon: "timer"
             },
             {
                 title: "Web Spreadsheet App",
-                tool: "GPT-5 & Google AI Studio",
+                tool: "GPT-5",
                 description: "A Microsoft Excel-inspired interactive spreadsheet web application engineered with functioning cells and capabilities.",
                 link: "https://chatgpt.com/canvas/shared/689ccd5fc49481918956fcff9502d900",
                 icon: "table"
-            },
-            {
-                title: "Interactive Flashcard Deck",
-                tool: "GPT-5 & Google AI Studio",
-                description: "A Quizlet-style study application allowing users to interact with flashcards for active recall, studying, and memorization.",
-                link: "https://chatgpt.com/share/69083c16-7be0-8001-8027-66a58caa0360",
-                icon: "layers"
             },
             {
                 title: "Job Search Tracker",
@@ -2331,23 +2324,25 @@
 
         function renderVolunteering() {
             const container = document.getElementById('volunteer-container');
-            container.innerHTML = volunteerRoles.map(vol => `
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500/20"></div>
-                    <div class="mb-4">
-                        <h4 class="text-lg font-bold text-slate-900 leading-tight">${vol.role}</h4>
-                        <p class="text-xs font-bold text-blue-500 mt-2 uppercase tracking-wide">${vol.date}</p>
+            if (container) {
+                container.innerHTML = volunteerRoles.map(vol => `
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-blue-500/20"></div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-slate-900 leading-tight">${vol.role}</h4>
+                            <p class="text-xs font-bold text-blue-500 mt-2 uppercase tracking-wide">${vol.date}</p>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            ${vol.details.map(detail => `
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="circle" class="text-blue-400 mt-0.5 w-2 h-2 fill-current"></i>
+                                     <span class="leading-relaxed">${detail}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
                     </div>
-                    <ul class="space-y-2 text-slate-600 text-sm">
-                        ${vol.details.map(detail => `
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="circle" class="text-blue-400 mt-0.5 w-2 h-2 fill-current"></i>
-                                 <span class="leading-relaxed">${detail}</span>
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `).join('');
+                `).join('');
+            }
         }
 
         function renderAwards() {
