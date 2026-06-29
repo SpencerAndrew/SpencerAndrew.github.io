@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" style="height: 100%;">
 <head>
@@ -382,6 +381,21 @@
                         <div class="text-xs font-mono text-orange-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30 shrink-0">
                             Calculation: 30 minutes/app × 449 apps = 13470 minutes / 60 minutes = total hours spent applying
                         </div>
+                    </div>
+                </div>
+
+                <!-- Low Hire, Low Fire Market Explanation -->
+                <div class="mt-8 pt-6 border-t border-slate-700/50">
+                    <div class="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                        <span class="p-1.5 bg-rose-500/20 rounded-md text-rose-400">
+                            <i data-lucide="anchor" class="w-4 h-4"></i>
+                        </span>
+                        <h4 class="text-sm font-bold text-white uppercase tracking-widest">The "Low Hire, Low Fire" Market Reality</h4>
+                    </div>
+                    <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5 mb-8 backdrop-blur-sm">
+                        <p class="text-sm text-slate-300 leading-relaxed text-center md:text-left">
+                            The current US labor market is experiencing a phenomenon economists call a <strong>"Low Hire, Low Fire"</strong> environment. While layoff rates remain historically low (companies are holding onto their existing workforce), hiring rates have simultaneously plummeted. For job seekers, this means fewer open positions, intense competition for the limited roles available, and highly extended interview processes. This bottleneck effect significantly lowers application conversion rates and prolongs the job hunt, making persistence and strategic application more important than ever.
+                        </p>
                     </div>
                 </div>
 
@@ -1603,6 +1617,15 @@
                 </button>
             </div>
             
+            <!-- API Key Input -->
+            <div class="bg-slate-100 p-3 border-b border-slate-200 flex items-center justify-between gap-2 text-xs">
+                <div class="flex items-center gap-2 flex-1">
+                    <i data-lucide="key" class="w-4 h-4 text-slate-500"></i>
+                    <input type="password" id="geminiApiKey" placeholder="Enter your Gemini API Key here to chat..." class="w-full bg-white border border-slate-300 rounded px-2 py-1.5 focus:ring-1 focus:ring-fuchsia-500 outline-none">
+                </div>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-fuchsia-600 hover:text-fuchsia-700 whitespace-nowrap font-semibold transition-colors">Get Key</a>
+            </div>
+
             <!-- Messages Area -->
             <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
                 <div class="flex gap-3 justify-start">
@@ -1651,6 +1674,13 @@
                     <div>
                         <label class="block text-sm font-semibold text-slate-700 mb-1">Target Job Title</label>
                         <input type="text" id="clRole" required placeholder="e.g. News Producer" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">Gemini API Key (Required)</label>
+                        <div class="flex gap-2">
+                            <input type="password" id="clGeminiApiKey" required placeholder="Enter Gemini API Key..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 text-sm font-semibold flex items-center justify-center whitespace-nowrap transition-colors">Get Key</a>
+                        </div>
                     </div>
                     <div class="sm:col-span-2">
                         <button type="submit" id="clSubmitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
@@ -2015,13 +2045,6 @@
                 icon: "table"
             },
             {
-                title: "Job Search Tracker",
-                tool: "GPT-5",
-                description: "A comprehensive, working web application designed specifically to track job applications, statuses, and interview schedules.",
-                link: "https://chatgpt.com/share/69083d94-64c0-8001-bd2a-c983728c2e70",
-                icon: "briefcase"
-            },
-            {
                 title: "Google Gemini Weather",
                 tool: "Google AI Studio",
                 description: "An AI-powered weather forecasting and reporting application built with Gemini.",
@@ -2174,13 +2197,6 @@
                 description: "An application that optimizes resumes against specific job descriptions.",
                 link: "https://ai.studio/apps/drive/1OyLa66qzZxFFwg4wJ6cIs9mCUIuy6vce",
                 icon: "briefcase"
-            },
-            {
-                title: "USAJobs Portal Website",
-                tool: "Google AI Studio",
-                description: "A front-end recreation of the USAJobs federal employment portal.",
-                link: "https://ai.studio/apps/drive/1vBwI4qVTMfjnyPSK-m72U1rGIJa06eVk",
-                icon: "landmark"
             },
             {
                 title: "Ancestry Explorer",
@@ -2801,227 +2817,3 @@
                 } else {
                     nav.classList.replace('bg-white', 'bg-transparent');
                     nav.classList.remove('shadow-md');
-                    navBrand.classList.replace('text-blue-900', 'text-white');
-                    btn.classList.replace('text-slate-900', 'text-white');
-                    document.querySelectorAll('#desktop-nav-links a').forEach(a => {
-                        a.classList.replace('text-slate-600', 'text-slate-200');
-                    });
-                }
-            });
-
-            // Experience Filter Logic
-            document.getElementById('experienceFilter').addEventListener('change', (e) => {
-                renderExperience(e.target.value);
-                lucide.createIcons();
-            });
-
-            // Clocks Logic
-            function updateClocks() {
-                const now = new Date();
-                const timeOptions = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
-                const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                
-                const tzMap = {
-                    'clock-hawaii': 'Pacific/Honolulu',
-                    'clock-alaska': 'America/Anchorage',
-                    'clock-pacific': 'America/Los_Angeles',
-                    'clock-mountain': 'America/Denver',
-                    'clock-central': 'America/Chicago',
-                    'clock-eastern': 'America/New_York'
-                };
-
-                for (const [id, tz] of Object.entries(tzMap)) {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.innerText = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: tz });
-                    }
-                }
-
-                const dateEl = document.querySelector('#current-date span');
-                if (dateEl) {
-                    dateEl.innerText = now.toLocaleDateString('en-US', dateOptions);
-                }
-            }
-            
-            updateClocks();
-            setInterval(updateClocks, 1000);
-
-            // Job Search Timer Logic
-            const searchStartDate = new Date('2025-10-25T00:00:00');
-            const searchTimerEl = document.getElementById('job-search-timer');
-            if (searchTimerEl) {
-                function updateSearchTimer() {
-                    const now = new Date();
-                    const diff = Math.max(0, now - searchStartDate);
-                    
-                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-                    const m = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
-                    const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-                    const ms = Math.floor(diff % 1000).toString().padStart(3, '0');
-
-                    searchTimerEl.innerHTML = `
-                        <div class="flex items-baseline justify-center flex-wrap gap-y-2">
-                            <span class="min-w-[2ch] text-right">${d}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">d</span>
-                            <span class="min-w-[2ch] text-right">${h}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">h</span>
-                            <span class="min-w-[2ch] text-right">${m}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">m</span>
-                            <span class="min-w-[2ch] text-right text-slate-200">${s}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">s</span>
-                            <span class="min-w-[3ch] text-right text-blue-400">${ms}</span><span class="text-sm md:text-base text-blue-500/80 ml-1 font-sans tracking-normal uppercase">ms</span>
-                        </div>
-                    `;
-                    requestAnimationFrame(updateSearchTimer);
-                }
-                requestAnimationFrame(updateSearchTimer);
-            }
-        });
-
-        // --- GEMINI API LOGIC (Vanilla JS) ---
-        const callGeminiAPI = async (userPrompt, systemPrompt) => {
-            const apiKey = ""; // Will be populated at runtime in valid env
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: userPrompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
-
-            const delay = (ms) => new Promise(res => setTimeout(res, ms));
-            const retries = [1000, 2000, 4000, 8000, 16000];
-
-            for (let i = 0; i < retries.length; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
-                } catch (error) {
-                    if (i === retries.length - 1) throw error;
-                    await delay(retries[i]);
-                }
-            }
-        };
-
-        // Chat logic
-        let chatMessages = [{ role: 'model', text: "Hi! I'm Spencer's AI Assistant. I have read his entire resume and portfolio. What would you like to know about his skills or experience?" }];
-        
-        function updateChatDOM() {
-            const container = document.getElementById('chatMessages');
-            container.innerHTML = chatMessages.map(msg => `
-                <div class="flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
-                    ${msg.role === 'model' ? `<div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></div>` : ''}
-                    <div class="p-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${msg.role === 'user' ? 'bg-blue-600 text-white rounded-tr-none shadow-sm' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-none shadow-sm'}">
-                        ${msg.text}
-                    </div>
-                    ${msg.role === 'user' ? `<div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0"><i data-lucide="user" class="w-[18px] h-[18px]"></i></div>` : ''}
-                </div>
-            `).join('');
-            lucide.createIcons();
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function openTranscriptChat() {
-            const modal = document.getElementById('chatModal');
-            modal.classList.remove('hidden');
-            const inputEl = document.getElementById('chatInput');
-            inputEl.value = "Can you summarize the topics covered in Spencer's news package transcripts?";
-            inputEl.focus();
-        }
-
-        document.getElementById('chatForm')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const inputEl = document.getElementById('chatInput');
-            const submitBtn = document.getElementById('chatSubmitBtn');
-            const text = inputEl.value.trim();
-            if (!text) return;
-
-            chatMessages.push({ role: 'user', text });
-            inputEl.value = '';
-            inputEl.disabled = true;
-            submitBtn.disabled = true;
-            
-            // Add loading indicator
-            document.getElementById('chatMessages').insertAdjacentHTML('beforeend', `
-                <div id="chatLoading" class="flex gap-3 justify-start">
-                    <div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></div>
-                    <div class="p-4 bg-white text-slate-500 border border-slate-200 rounded-2xl rounded-tl-none flex items-center gap-2">Thinking...</div>
-                </div>
-            `);
-            lucide.createIcons();
-            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
-
-            try {
-                const sys = `You are a helpful AI assistant built to represent Spencer Andrew's portfolio. Use ONLY the provided resume data and transcripts to answer questions from recruiters. Be professional, concise, and enthusiastic. If you do not know the answer based on the data, politely say so and recommend they contact Spencer at spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}\nTranscripts Data: ${JSON.stringify(transcriptsData)}`;
-                const convo = chatMessages.map(m => `${m.role === 'model' ? 'AI' : 'User'}: ${m.text}`).join('\n');
-                const prompt = `Conversation History:\n${convo}\n\nRespond as the AI assistant to the User's last message.`;
-                
-                const response = await callGeminiAPI(prompt, sys);
-                chatMessages.push({ role: 'model', text: response });
-            } catch (err) {
-                chatMessages.push({ role: 'model', text: "I'm having trouble connecting to the AI server right now. Please try again or reach out to Spencer directly!" });
-            } finally {
-                updateChatDOM();
-                inputEl.disabled = false;
-                submitBtn.disabled = false;
-                inputEl.focus();
-            }
-        });
-
-        // Cover Letter Logic
-        document.getElementById('clForm')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const comp = document.getElementById('clCompany').value.trim();
-            const role = document.getElementById('clRole').value.trim();
-            const btn = document.getElementById('clSubmitBtn');
-            const resContainer = document.getElementById('clResultContainer');
-            const resText = document.getElementById('clResultText');
-            
-            if(!comp || !role) return;
-
-            btn.disabled = true;
-            btn.innerHTML = `<i data-lucide="loader-2" class="w-[18px] h-[18px] animate-spin"></i> Drafting...`;
-            lucide.createIcons();
-            resContainer.classList.add('hidden');
-
-            try {
-                const sys = `You are an expert career coach AI. Write a custom, professional, and enthusiastic cover letter for Spencer Andrew based on his provided resume data. Tailor it to the specific Company and Job Role requested by the user. Highlight his relevant experience in broadcast journalism, social media, and guest services. Keep it to a maximum of 3 concise paragraphs. Format with clear spacing. Use his contact info: (630) 666-3517, spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}`;
-                const prompt = `Company: ${comp}\nJob Title: ${role}\nPlease generate the cover letter now.`;
-                
-                const response = await callGeminiAPI(prompt, sys);
-                resText.innerText = response;
-                resContainer.classList.remove('hidden');
-            } catch (err) {
-                resText.innerText = "Failed to generate the cover letter due to an error. Please try again.";
-                resContainer.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = `<i data-lucide="sparkles" class="w-[18px] h-[18px]"></i> Generate Draft`;
-                lucide.createIcons();
-            }
-        });
-
-        // Print handler wrapper
-        function handlePrint() {
-            window.print();
-            document.getElementById('printToast').classList.remove('hidden');
-            setTimeout(() => document.getElementById('printToast').classList.add('hidden'), 6000);
-        }
-
-        // Google Translate Initialization
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-            
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'mobile_google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
