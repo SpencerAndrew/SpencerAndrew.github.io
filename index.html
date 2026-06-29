@@ -60,6 +60,17 @@
             overflow-y: auto;
             padding-right: 0.5rem; /* Small padding to prevent content from touching scrollbar */
         }
+
+        /* Flashing Light Red and Light Yellow Animation */
+        @keyframes flashRedYellow {
+            0% { box-shadow: 0 0 15px 5px rgba(255, 99, 71, 0.3); border-color: rgba(255, 99, 71, 0.8); }
+            50% { box-shadow: 0 0 15px 5px rgba(255, 255, 102, 0.4); border-color: rgba(255, 255, 102, 0.8); }
+            100% { box-shadow: 0 0 15px 5px rgba(255, 99, 71, 0.3); border-color: rgba(255, 99, 71, 0.8); }
+        }
+        .flashing-box {
+            animation: flashRedYellow 2s infinite;
+            border: 2px solid;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800" style="position: relative; min-height: 100%; top: 0px;">
@@ -362,6 +373,23 @@
                         <div class="text-xs font-mono text-orange-400/80 bg-blue-950/30 px-3 py-1.5 rounded-full border border-blue-800/30 shrink-0">
                             Calculation: 30 minutes/app × 449 apps = 13470 minutes / 60 minutes = total hours spent applying
                         </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-700/50">
+                    <div class="flashing-box bg-slate-800/40 backdrop-blur-sm rounded-2xl p-6 mb-8 relative overflow-hidden text-center md:text-left">
+                        <div class="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                            <span class="p-1.5 bg-rose-500/20 rounded-md text-rose-400">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                            </span>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-widest">Low Hire, Low Fire Market</h4>
+                        </div>
+                        <p class="text-sm text-slate-300 leading-relaxed mb-4">
+                            A "Low Hire, Low Fire" job market is characterized by companies significantly slowing down their recruitment of new talent while simultaneously holding onto their current employees[cite: 1]. 
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            For job seekers, this dynamic creates a highly stagnant environment with fewer open roles and intense competition for the few available positions[cite: 1]. The Indeed Economists June 2026 Study highlights that this reality drastically extends the duration of the job search, negatively impacting application conversion rates and increasing the overall opportunity cost for active applicants[cite: 1].
+                        </p>
                     </div>
                 </div>
 
@@ -2826,112 +2854,4 @@
             const submitBtn = document.getElementById('chatSubmitBtn');
             const apiKeyEl = document.getElementById('geminiApiKey');
             
-            const text = inputEl.value.trim();
-            const apiKey = apiKeyEl ? apiKeyEl.value.trim() : '';
-
-            if (!text) return;
-            
-            // Ensure the user provided an API key before trying to send
-            if (!apiKey) {
-                alert("Please paste your Gemini API Key in the top field to chat.");
-                return;
-            }
-
-            chatMessages.push({ role: 'user', text });
-            inputEl.value = '';
-            inputEl.disabled = true;
-            submitBtn.disabled = true;
-            
-            // Add loading indicator
-            document.getElementById('chatMessages').insertAdjacentHTML('beforeend', `
-                <div id="chatLoading" class="flex gap-3 justify-start">
-                    <div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></div>
-                    <div class="p-4 bg-white text-slate-500 border border-slate-200 rounded-2xl rounded-tl-none flex items-center gap-2">Thinking...</div>
-                </div>
-            `);
-            lucide.createIcons();
-            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
-
-            try {
-                const sys = `You are a helpful AI assistant built to represent Spencer Andrew's portfolio. Use ONLY the provided resume data and transcripts to answer questions from recruiters. Be professional, concise, and enthusiastic. If you do not know the answer based on the data, politely say so and recommend they contact Spencer at spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}\nTranscripts Data: ${JSON.stringify(transcriptsData)}`;
-                const convo = chatMessages.map(m => `${m.role === 'model' ? 'AI' : 'User'}: ${m.text}`).join('\n');
-                const prompt = `Conversation History:\n${convo}\n\nRespond as the AI assistant to the User's last message.`;
-                
-                // Pass the apiKey into the function
-                const response = await callGeminiAPI(prompt, sys, apiKey);
-                chatMessages.push({ role: 'model', text: response });
-            } catch (err) {
-                console.error(err);
-                chatMessages.push({ role: 'model', text: "I'm having trouble connecting to the AI server. Please verify your API key is correct and try again!" });
-            } finally {
-                updateChatDOM();
-                inputEl.disabled = false;
-                submitBtn.disabled = false;
-                inputEl.focus();
-            }
-        });
-
-        // Cover Letter Logic
-        document.getElementById('clForm')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const comp = document.getElementById('clCompany').value.trim();
-            const role = document.getElementById('clRole').value.trim();
-            const apiKeyEl = document.getElementById('clApiKey');
-            const btn = document.getElementById('clSubmitBtn');
-            const resContainer = document.getElementById('clResultContainer');
-            const resText = document.getElementById('clResultText');
-            
-            const apiKey = apiKeyEl ? apiKeyEl.value.trim() : '';
-
-            if(!comp || !role) return;
-
-            if (!apiKey) {
-                alert("Please paste your Gemini API Key in the top field to generate a cover letter.");
-                return;
-            }
-
-            btn.disabled = true;
-            btn.innerHTML = `<i data-lucide="loader-2" class="w-[18px] h-[18px] animate-spin"></i> Drafting...`;
-            lucide.createIcons();
-            resContainer.classList.add('hidden');
-
-            try {
-                const sys = `You are an expert career coach AI. Write a custom, professional, and enthusiastic cover letter for Spencer Andrew based on his provided resume data. Tailor it to the specific Company and Job Role requested by the user. Highlight his relevant experience in broadcast journalism, social media, and guest services. Keep it to a maximum of 3 concise paragraphs. Format with clear spacing. Use his contact info: (630) 666-3517, spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}`;
-                const prompt = `Company: ${comp}\nJob Title: ${role}\nPlease generate the cover letter now.`;
-                
-                const response = await callGeminiAPI(prompt, sys, apiKey);
-                resText.innerText = response;
-                resContainer.classList.remove('hidden');
-            } catch (err) {
-                resText.innerText = "Failed to generate the cover letter due to an error. Please check your API key and try again.";
-                resContainer.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = `<i data-lucide="sparkles" class="w-[18px] h-[18px]"></i> Generate Draft`;
-                lucide.createIcons();
-            }
-        });
-
-        // Print handler wrapper
-        function handlePrint() {
-            window.print();
-            document.getElementById('printToast').classList.remove('hidden');
-            setTimeout(() => document.getElementById('printToast').classList.add('hidden'), 6000);
-        }
-
-        // Google Translate Initialization
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-            
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'mobile_google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
-</html>
+            const text = inputEl.valueI seem to be encountering an error. Can I try something else for you?
