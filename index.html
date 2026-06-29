@@ -64,7 +64,6 @@
 </head>
 <body class="bg-slate-50 font-sans text-slate-800" style="position: relative; min-height: 100%; top: 0px;">
 
-    <!-- Toast Notification for Print Block -->
     <div id="printToast" class="fixed bottom-24 right-6 bg-slate-900 text-white p-5 rounded-2xl shadow-2xl z-[200] max-w-sm flex gap-4 border border-slate-700 print:hidden animate-bounce transition-all hidden">
         <i data-lucide="printer" class="text-blue-400 shrink-0 mt-1 w-6 h-6"></i>
         <div>
@@ -78,7 +77,6 @@
         </button>
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
@@ -86,16 +84,12 @@
                     Spencer Andrew's Portfolio<span class="text-blue-500">.</span>
                 </div>
                 
-                <!-- Desktop Nav -->
                 <div class="hidden lg:flex flex-1 justify-center space-x-4 xl:space-x-6 text-sm px-4 lg:px-8" id="desktop-nav-links">
-                    <!-- Populated by JS -->
-                </div>
+                    </div>
 
                 <div class="flex items-center justify-end gap-3">
-                    <!-- Google Translate (Desktop) -->
                     <div id="google_translate_element" class="hidden md:block"></div>
 
-                    <!-- Mobile Menu Button -->
                     <div class="lg:hidden">
                         <button id="mobile-menu-btn" class="text-white transition-colors mt-1">
                             <i data-lucide="menu" class="w-7 h-7" id="mobile-menu-icon"></i>
@@ -105,21 +99,17 @@
             </div>
         </div>
 
-        <!-- Mobile Nav Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white absolute w-full shadow-lg">
             <div class="px-4 py-3 border-b border-slate-100 md:hidden">
                 <div id="mobile_google_translate_element"></div>
             </div>
             <div class="px-4 pt-2 pb-6 space-y-2" id="mobile-nav-links">
-                <!-- Populated by JS -->
-            </div>
+                </div>
         </div>
     </nav>
 
-    <!-- Main Content wrapper to hide during print -->
     <div class="print:hidden">
         
-        <!-- Hero Section -->
         <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-900 opacity-90 z-0"></div>
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-500 rounded-full blur-3xl opacity-20 z-0"></div>
@@ -145,7 +135,6 @@
                         </button>
                     </div>
 
-                    <!-- External Portfolio Links -->
                     <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 justify-center w-full max-w-4xl mx-auto relative z-10">
                         <a href="https://spencerandrew.github.io/photography" target="_blank" rel="noopener noreferrer" title="Site under construction" class="group relative px-6 py-3 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-50 font-semibold rounded-lg backdrop-blur-sm border-2 border-dashed border-amber-400/60 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20 overflow-hidden">
                             <div class="absolute top-0 right-0 bg-amber-400 text-slate-900 text-[9px] font-black px-2 py-0.5 rounded-bl-md uppercase tracking-widest shadow-sm z-10 pointer-events-none">🚧 Dev</div>
@@ -212,7 +201,6 @@
                         </a>
                     </div>
 
-                    <!-- US Time Zones -->
                     <div class="mt-16 w-full max-w-4xl mx-auto relative z-10">
                         <div class="flex items-center justify-center gap-2 mb-4">
                             <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
@@ -245,7 +233,6 @@
                             </div>
                         </div>
 
-                        <!-- Live Date Display -->
                         <div class="mt-6 text-center">
                             <div id="current-date" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/40 border border-slate-700/50 rounded-lg backdrop-blur-sm text-sm font-medium text-slate-300 shadow-sm transition-colors hover:bg-slate-800/60">
                                 <i data-lucide="calendar" class="w-4 h-4 text-blue-400"></i>
@@ -257,7 +244,6 @@
                 </div>
             </div>
             
-            <!-- Job Hunt Analytics Module -->
             <div class="mt-10 bg-slate-900/50 border border-slate-700/50 rounded-2xl p-6 backdrop-blur-md shadow-2xl relative overflow-hidden group max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                     <i data-lucide="trending-down" class="w-32 h-32 text-blue-400"></i>
@@ -293,7 +279,6 @@
                     </div>
                 </div>
 
-                <!-- Job Search Live Timer -->
                 <div class="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 md:p-8 text-center mb-8 relative overflow-hidden group">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-indigo-600/10 opacity-50 group-hover:opacity-100 transition-opacity"></div>
                     <div class="relative z-10">
@@ -302,15 +287,12 @@
                             <h4 class="text-xs font-bold text-slate-300 uppercase tracking-widest">Active Time on the Career Hunt</h4>
                         </div>
                         <div id="job-search-timer" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tabular-nums font-mono tracking-tight">
-                            <!-- Populated by JS -->
-                        </div>
+                            </div>
                         <p class="text-[10px] text-slate-500 font-bold mt-4 uppercase tracking-widest">Tracking since October 25, 2025</p>
                     </div>
                 </div>
 
-                <!-- Application Breakdown Tables -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
-                    <!-- Status Table -->
                     <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl overflow-hidden backdrop-blur-sm">
                         <div class="bg-slate-800/60 px-5 py-4 border-b border-slate-700/50">
                             <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest flex items-center gap-2">
@@ -337,7 +319,6 @@
                         </table>
                     </div>
 
-                    <!-- Position Type Table -->
                     <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl overflow-hidden backdrop-blur-sm">
                         <div class="bg-slate-800/60 px-5 py-4 border-b border-slate-700/50">
                             <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-2">
@@ -384,22 +365,6 @@
                     </div>
                 </div>
 
-                <!-- Low Hire, Low Fire Market Explanation -->
-                <div class="mt-8 pt-6 border-t border-slate-700/50">
-                    <div class="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                        <span class="p-1.5 bg-rose-500/20 rounded-md text-rose-400">
-                            <i data-lucide="anchor" class="w-4 h-4"></i>
-                        </span>
-                        <h4 class="text-sm font-bold text-white uppercase tracking-widest">The "Low Hire, Low Fire" Market Reality</h4>
-                    </div>
-                    <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5 mb-8 backdrop-blur-sm">
-                        <p class="text-sm text-slate-300 leading-relaxed text-center md:text-left">
-                            The current US labor market is experiencing a phenomenon economists call a <strong>"Low Hire, Low Fire"</strong> environment. While layoff rates remain historically low (companies are holding onto their existing workforce), hiring rates have simultaneously plummeted. For job seekers, this means fewer open positions, intense competition for the limited roles available, and highly extended interview processes. This bottleneck effect significantly lowers application conversion rates and prolongs the job hunt, making persistence and strategic application more important than ever.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Statistical Comparisons Module -->
                 <div class="mt-8 pt-6 border-t border-slate-700/50">
                     <div class="flex items-center gap-2 mb-6 justify-center md:justify-start">
                         <span class="p-1.5 bg-amber-500/20 rounded-md text-amber-400">
@@ -410,7 +375,6 @@
                     <p class="text-xs text-slate-400 mb-6 text-center md:text-left">For perspective, here are a few events with a higher statistical probability of occurring than my current job search conversion rate (2.00%).</p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <!-- Item 1 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-emerald-500/10 rounded-lg shrink-0 text-emerald-400 mt-0.5">
                                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
@@ -420,7 +384,6 @@
                                 <span class="text-xs text-slate-400 leading-relaxed">Harvard historically maintains an acceptance rate hovering around 5% (roughly 1 in 20).</span>
                             </div>
                         </div>
-                        <!-- Item 2 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-blue-500/10 rounded-lg shrink-0 text-blue-400 mt-0.5">
                                 <i data-lucide="hand" class="w-4 h-4"></i>
@@ -430,7 +393,6 @@
                                 <span class="text-xs text-slate-400 leading-relaxed">Approximately 10% to 12% of the global population is left-handed (roughly 1 in 10).</span>
                             </div>
                         </div>
-                        <!-- Item 3 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-orange-500/10 rounded-lg shrink-0 text-orange-400 mt-0.5">
                                 <i data-lucide="utensils" class="w-4 h-4"></i>
@@ -440,7 +402,6 @@
                                 <span class="text-xs text-slate-400 leading-relaxed">The CDC estimates that 16.6% of Americans (1 in 6) get sick from contaminated food annually.</span>
                             </div>
                         </div>
-                        <!-- Item 4 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-indigo-500/10 rounded-lg shrink-0 text-indigo-400 mt-0.5">
                                 <i data-lucide="ear" class="w-4 h-4"></i>
@@ -450,7 +411,6 @@
                                 <span class="text-xs text-slate-400 leading-relaxed">About 14% of adults aged 20 to 69 have some level of speech-frequency hearing loss.</span>
                             </div>
                         </div>
-                        <!-- Item 5 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-rose-500/10 rounded-lg shrink-0 text-rose-400 mt-0.5">
                                 <i data-lucide="droplet" class="w-4 h-4"></i>
@@ -460,7 +420,6 @@
                                 <span class="text-xs text-slate-400 leading-relaxed">Roughly 9% of the population has B-positive blood, making it nearly five times more common than my conversion rate.</span>
                             </div>
                         </div>
-                        <!-- Item 6 -->
                         <div class="flex items-start gap-3 bg-slate-800/30 p-4 rounded-xl border border-slate-700/50 hover:bg-slate-800/50 transition-colors">
                             <div class="p-2 bg-violet-500/10 rounded-lg shrink-0 text-violet-400 mt-0.5">
                                 <i data-lucide="dices" class="w-4 h-4"></i>
@@ -474,7 +433,6 @@
                 </div>
             </div>
 
-            <!-- Medical Debt Analytics Teaser Module -->
             <div class="mt-8 bg-slate-900/50 border border-slate-700/50 rounded-2xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden group max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center min-h-[250px]">
                 <div class="absolute inset-0 bg-gradient-to-br from-rose-900/10 via-transparent to-slate-900/50 z-0"></div>
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rose-500 to-pink-500 opacity-50"></div>
@@ -492,7 +450,6 @@
                     </div>
                 </div>
                 
-                <!-- Background decorative icon -->
                 <div class="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500 z-0 pointer-events-none">
                     <i data-lucide="receipt" class="w-64 h-64 text-rose-500"></i>
                 </div>
@@ -500,7 +457,6 @@
             
         </section>
 
-        <!-- My Journey / Locations Section -->
         <section id="journey" class="py-20 bg-slate-100 border-t border-slate-200 print:hidden">
             <div class="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-16 text-blue-600 font-semibold uppercase tracking-wider">
@@ -510,11 +466,9 @@
 
                 <div class="flex flex-col xl:flex-row gap-12 items-start w-full">
                     
-                    <!-- Timeline -->
                     <div class="order-last xl:order-first w-full xl:w-1/4 flex justify-center xl:justify-start xl:sticky xl:top-32">
                         <div class="relative border-l-2 border-blue-200 ml-4 space-y-12 pb-4">
                             
-                            <!-- Location 1 -->
                             <div class="relative pl-8">
                                 <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-blue-500 border-4 border-slate-100 shadow-sm"></div>
                                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow relative group">
@@ -529,7 +483,6 @@
                                 </div>
                             </div>
 
-                            <!-- Location 2 -->
                             <div class="relative pl-8">
                                 <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-indigo-500 border-4 border-slate-100 shadow-sm"></div>
                                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow relative group">
@@ -544,7 +497,6 @@
                                 </div>
                             </div>
 
-                            <!-- Location 3 -->
                             <div class="relative pl-8">
                                 <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-blue-500 border-4 border-slate-100 shadow-sm"></div>
                                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow relative group">
@@ -562,13 +514,10 @@
                         </div>
                     </div>
 
-                    <!-- City Spotlight Graphics -->
                     <div class="order-first xl:order-last w-full xl:w-3/4 flex flex-col gap-8">
                         
-                        <!-- Wheaton & DuPage Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             
-                            <!-- Wheaton Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative">
                                     <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=800&q=80" alt="Suburban Downtown" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -649,7 +598,6 @@
                                 </div>
                             </div>
 
-                            <!-- DuPage County Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative">
                                     <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="DuPage County Forest Preserve" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -707,7 +655,6 @@
                                 </div>
                             </div>
 
-                            <!-- Illinois Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative">
                                     <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80" alt="Illinois State Skyline" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -773,10 +720,8 @@
                             </div>
                         </div>
 
-                        <!-- Macomb & McDonough Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                             
-                            <!-- Macomb Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative bg-purple-950">
                                     <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="Western Illinois University Campus Vibe" class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-50 transition-all duration-500 mix-blend-luminosity">
@@ -858,7 +803,6 @@
                                 </div>
                             </div>
 
-                            <!-- McDonough County Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative">
                                     <img src="https://placehold.co/800x400/1e293b/a7f3d0?text=McDonough+County" alt="McDonough County" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -916,7 +860,6 @@
                                 </div>
                             </div>
 
-                            <!-- Illinois Spotlight Graphic -->
                             <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative group">
                                 <div class="h-48 overflow-hidden relative">
                                     <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80" alt="Illinois State Skyline" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -982,12 +925,8 @@
                             </div>
                         </div>
 
-                    </div> <!-- End of Spotlight Graphics Column -->
-                </div> <!-- End of Grid -->
-            </div> <!-- End of Max Width Container -->
-        </section>
+                    </div> </div> </div> </section>
 
-        <!-- Quotes Banner -->
         <section class="py-16 bg-blue-600 text-white relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNHYtNGgtdjRoLTR2NGgtNHY0aDR2NGg0di00aDR6bS04IDh2LTRoLTR2NGg0em04IDB2LTRoNHY0aC00em0tOC04di00aC00djRoNHptOCAwdi00aDR2NGgtNHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1012,7 +951,6 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="py-20 bg-slate-50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-blue-600 font-semibold uppercase tracking-wider">
@@ -1020,7 +958,6 @@
                     <h2>Experience</h2>
                 </div>
 
-                <!-- Longest Shift Highlight -->
                 <div class="mb-10 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-2xl p-6 md:p-8 shadow-sm relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-6 group hover:shadow-md transition-shadow">
                     <div class="absolute top-0 left-0 w-2 h-full bg-orange-500"></div>
                     <div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
@@ -1057,12 +994,10 @@
                 </div>
 
                 <div id="experience-container" class="space-y-12">
-                    <!-- Populated by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Broadcast News Packages Section -->
         <section id="news-packages" class="pt-20 pb-16 bg-purple-900 border-t-8 border-yellow-500 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1078,12 +1013,10 @@
                 </div>
 
                 <div id="news-packages-container" class="grid md:grid-cols-2 gap-8">
-                    <!-- Populated by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Transcripts Section -->
         <section id="transcripts" class="py-16 bg-purple-950 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1099,12 +1032,10 @@
                 </div>
 
                 <div id="transcripts-container" class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl transcripts-scroll">
-                    <!-- Populated by JS -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Good Morning Macomb Packages Section -->
         <section id="gmm-packages" class="py-16 bg-purple-900 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1120,12 +1051,10 @@
                 </div>
 
                 <div id="gmm-packages-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Radio Broadcasts Section -->
         <section id="radio-broadcasts" class="py-16 bg-purple-900 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1141,12 +1070,10 @@
                 </div>
 
                 <div id="radio-broadcasts-container" class="grid md:grid-cols-2 gap-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Audio Interviews Section -->
         <section id="audio-interviews" class="py-16 bg-purple-900 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1162,12 +1089,10 @@
                 </div>
 
                 <div id="audio-interviews-container" class="grid md:grid-cols-2 gap-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- TikTok Challenges Section -->
         <section id="tiktok-challenges" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1183,12 +1108,10 @@
                 </div>
 
                 <div id="tiktok-challenges-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Social Media Samples Section -->
         <section id="social-media-samples" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1204,12 +1127,10 @@
                 </div>
 
                 <div id="social-media-samples-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Written Work Section -->
         <section id="written-work" class="pt-16 pb-20 bg-purple-900 border-b-8 border-yellow-500 border-t border-purple-800 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-yellow-400 font-semibold uppercase tracking-wider">
@@ -1225,12 +1146,10 @@
                 </div>
 
                 <div id="written-work-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- The World Today Section -->
         <section id="the-world-today" class="pt-16 pb-20 bg-slate-900 relative overflow-hidden print:hidden">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-emerald-500 via-amber-500 to-rose-600"></div>
             <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-emerald-900/20 to-rose-900/20 z-0"></div>
@@ -1249,13 +1168,11 @@
                 </div>
 
                 <div id="twt-packages-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
             <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-rose-600 via-amber-500 via-emerald-500 to-blue-600"></div>
         </section>
 
-        <!-- Other Projects Section -->
         <section id="other-projects" class="pt-16 pb-20 bg-slate-800 border-b-8 border-cyan-500 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-cyan-400 font-semibold uppercase tracking-wider">
@@ -1271,12 +1188,10 @@
                 </div>
 
                 <div id="other-projects-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- AI Coded Apps Section -->
         <section id="ai-apps" class="pt-16 pb-20 bg-slate-950 border-b-8 border-violet-600 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-violet-500 font-semibold uppercase tracking-wider">
@@ -1292,12 +1207,10 @@
                 </div>
 
                 <div id="ai-apps-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Job Market Reality Section -->
         <section id="job-market" class="py-20 bg-slate-900 border-b-8 border-rose-600 print:hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-12 text-rose-500 font-semibold uppercase tracking-wider">
@@ -1313,12 +1226,10 @@
                 </div>
 
                 <div id="job-market-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Tailored Resumes Section -->
         <section id="resumes" class="py-20 bg-slate-200 print:hidden">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-8 text-blue-600 font-semibold uppercase tracking-wider">
@@ -1330,11 +1241,9 @@
                     Review my ATS-compliant resumes tailored specifically for Social Media Management, Broadcast Journalism, Guest Services, and Hospitality. Use the print button to save a copy as a PDF.
                 </p>
 
-                <!-- Resume Tabs -->
                 <div class="flex flex-wrap justify-center items-center gap-3 mb-8">
                     <div class="flex flex-wrap justify-center gap-2" id="resume-tabs">
-                         <!-- Populated by JS -->
-                    </div>
+                         </div>
                     
                     <div class="w-full sm:w-px sm:h-8 bg-slate-300 mx-2 hidden sm:block"></div>
 
@@ -1348,14 +1257,11 @@
                     </div>
                 </div>
 
-                <!-- Web View of Resume -->
                 <div id="resume-web-view" class="bg-white shadow-2xl rounded-sm p-8 sm:p-12 border-t-8 border-blue-600 max-w-4xl mx-auto">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Education & Certs -->
         <section id="education" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-16 text-blue-600 font-semibold uppercase tracking-wider">
@@ -1364,7 +1270,6 @@
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Education Side -->
                     <div class="space-y-8">
                         <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                             <i data-lucide="book-open" class="text-blue-500 w-6 h-6"></i> Academic Background
@@ -1394,7 +1299,6 @@
                         </div>
                     </div>
 
-                    <!-- Certs Side -->
                     <div class="space-y-8">
                         <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
                             <i data-lucide="award" class="text-blue-500 w-6 h-6"></i> Certifications & Licenses
@@ -1474,8 +1378,7 @@
                 </div>
             </div>
         </section>
-<!-- Volunteering Section -->
-        <section id="volunteering" class="py-20 bg-slate-50 border-t border-slate-200">
+<section id="volunteering" class="py-20 bg-slate-50 border-t border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-16 text-blue-600 font-semibold uppercase tracking-wider">
                     <i data-lucide="heart" class="w-6 h-6"></i>
@@ -1498,23 +1401,18 @@
                 </div>
         </section>
 
-        <!-- Extracurriculars & Awards (Skills) -->
         <section id="skills" class="py-20 bg-slate-900 text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-16">
                     
-                    <!-- Awards -->
                     <div>
                         <h2 class="text-3xl font-bold mb-8 text-white flex items-center gap-3">
                             <i data-lucide="award" class="text-blue-400 w-8 h-8"></i> Honors & Awards
                         </h2>
-                        <!-- Added honors-scroll class to the container -->
                         <div id="awards-container" class="space-y-4 honors-scroll">
-                            <!-- Populated by JS -->
-                        </div>
+                            </div>
                     </div>
 
-                    <!-- Involvement -->
                     <div>
                         <h2 class="text-3xl font-bold mb-8 text-white flex items-center gap-3">
                             <i data-lucide="megaphone" class="text-blue-400 w-8 h-8"></i> Campus Involvement
@@ -1567,7 +1465,6 @@
             </div>
         </section>
 
-        <!-- Recommendations Section -->
         <section id="recommendations" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-16 text-blue-600 font-semibold uppercase tracking-wider">
@@ -1576,12 +1473,10 @@
                 </div>
 
                 <div id="recommendations-container" class="columns-1 md:columns-2 xl:columns-3 gap-8 space-y-8">
-                     <!-- Populated by JS -->
-                </div>
+                     </div>
             </div>
         </section>
 
-        <!-- Footer / Contact -->
         <footer class="bg-slate-950 py-12 text-center text-slate-400 border-t border-slate-800">
             <div class="max-w-4xl mx-auto px-4">
                 <h2 class="text-2xl font-bold text-white mb-6">I'm ready to make an impact!</h2>
@@ -1592,21 +1487,11 @@
             </div>
         </footer>
 
-    </div> <!-- End print:hidden wrapper -->
+    </div> <div id="resume-print-view" class="hidden print:block p-8 bg-white text-black font-sans w-full max-w-4xl mx-auto">
+         </div>
 
-    <!-- ========================================= -->
-    <!-- PRINT-ONLY RESUME VIEW (Hidden on Web)    -->
-    <!-- ========================================= -->
-    <div id="resume-print-view" class="hidden print:block p-8 bg-white text-black font-sans w-full max-w-4xl mx-auto">
-         <!-- Populated by JS -->
-    </div>
-
-    <!-- ========================================= -->
-    <!-- AI CHAT MODAL                             -->
-    <!-- ========================================= -->
     <div id="chatModal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 print:hidden hidden">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col h-[600px] max-h-[90vh] overflow-hidden border border-slate-200">
-            <!-- Header -->
             <div class="bg-fuchsia-600 text-white p-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <i data-lucide="sparkles" class="text-fuchsia-200 w-6 h-6"></i>
@@ -1617,16 +1502,6 @@
                 </button>
             </div>
             
-            <!-- API Key Input -->
-            <div class="bg-slate-100 p-3 border-b border-slate-200 flex items-center justify-between gap-2 text-xs">
-                <div class="flex items-center gap-2 flex-1">
-                    <i data-lucide="key" class="w-4 h-4 text-slate-500"></i>
-                    <input type="password" id="geminiApiKey" placeholder="Enter your Gemini API Key here to chat..." class="w-full bg-white border border-slate-300 rounded px-2 py-1.5 focus:ring-1 focus:ring-fuchsia-500 outline-none">
-                </div>
-                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-fuchsia-600 hover:text-fuchsia-700 whitespace-nowrap font-semibold transition-colors">Get Key</a>
-            </div>
-
-            <!-- Messages Area -->
             <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
                 <div class="flex gap-3 justify-start">
                     <div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0">
@@ -1638,7 +1513,6 @@
                 </div>
             </div>
 
-            <!-- Input Area -->
             <form id="chatForm" class="p-4 bg-white border-t border-slate-200 flex gap-2">
                 <input type="text" id="chatInput" placeholder="Ask about Spencer's experience..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-3 text-sm focus:ring-2 focus:ring-fuchsia-500 outline-none">
                 <button type="submit" id="chatSubmitBtn" class="bg-fuchsia-600 text-white p-3 rounded-full hover:bg-fuchsia-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
@@ -1648,9 +1522,6 @@
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- COVER LETTER GENERATOR MODAL              -->
-    <!-- ========================================= -->
     <div id="coverLetterModal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 print:hidden hidden">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl flex flex-col max-h-[90vh] overflow-hidden border border-slate-200">
             <div class="bg-blue-600 text-white p-5 flex justify-between items-center">
@@ -1676,13 +1547,6 @@
                         <input type="text" id="clRole" required placeholder="e.g. News Producer" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
                     </div>
                     <div class="sm:col-span-2">
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Gemini API Key (Required)</label>
-                        <div class="flex gap-2">
-                            <input type="password" id="clGeminiApiKey" required placeholder="Enter Gemini API Key..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none">
-                            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 text-sm font-semibold flex items-center justify-center whitespace-nowrap transition-colors">Get Key</a>
-                        </div>
-                    </div>
-                    <div class="sm:col-span-2">
                         <button type="submit" id="clSubmitBtn" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
                             <i data-lucide="sparkles" class="w-[18px] h-[18px]"></i> Generate Draft
                         </button>
@@ -1697,14 +1561,10 @@
         </div>
     </div>
 
-    <!-- Back to Top Button -->
     <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 bg-blue-600/90 backdrop-blur-sm text-white p-3 sm:p-4 rounded-full shadow-2xl hover:bg-blue-500 hover:shadow-blue-500/50 transition-all duration-300 z-[90] print:hidden group border border-blue-400/30 opacity-0 pointer-events-none translate-y-4">
         <i data-lucide="arrow-up" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-y-1 transition-transform duration-300"></i>
     </button>
 
-    <!-- ========================================= -->
-    <!-- JAVASCRIPT LOGIC & DATA INJECTION         -->
-    <!-- ========================================= -->
     <script>
         // --- DATA OBJECTS ---
         const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'AI Apps', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
@@ -2197,6 +2057,13 @@
                 description: "An application that optimizes resumes against specific job descriptions.",
                 link: "https://ai.studio/apps/drive/1OyLa66qzZxFFwg4wJ6cIs9mCUIuy6vce",
                 icon: "briefcase"
+            },
+            {
+                title: "USAJobs Portal Website",
+                tool: "Google AI Studio",
+                description: "A front-end recreation of the USAJobs federal employment portal.",
+                link: "https://ai.studio/apps/drive/1vBwI4qVTMfjnyPSK-m72U1rGIJa06eVk",
+                icon: "landmark"
             },
             {
                 title: "Ancestry Explorer",
@@ -2817,3 +2684,227 @@
                 } else {
                     nav.classList.replace('bg-white', 'bg-transparent');
                     nav.classList.remove('shadow-md');
+                    navBrand.classList.replace('text-blue-900', 'text-white');
+                    btn.classList.replace('text-slate-900', 'text-white');
+                    document.querySelectorAll('#desktop-nav-links a').forEach(a => {
+                        a.classList.replace('text-slate-600', 'text-slate-200');
+                    });
+                }
+            });
+
+            // Experience Filter Logic
+            document.getElementById('experienceFilter').addEventListener('change', (e) => {
+                renderExperience(e.target.value);
+                lucide.createIcons();
+            });
+
+            // Clocks Logic
+            function updateClocks() {
+                const now = new Date();
+                const timeOptions = { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true };
+                const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                
+                const tzMap = {
+                    'clock-hawaii': 'Pacific/Honolulu',
+                    'clock-alaska': 'America/Anchorage',
+                    'clock-pacific': 'America/Los_Angeles',
+                    'clock-mountain': 'America/Denver',
+                    'clock-central': 'America/Chicago',
+                    'clock-eastern': 'America/New_York'
+                };
+
+                for (const [id, tz] of Object.entries(tzMap)) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.innerText = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: tz });
+                    }
+                }
+
+                const dateEl = document.querySelector('#current-date span');
+                if (dateEl) {
+                    dateEl.innerText = now.toLocaleDateString('en-US', dateOptions);
+                }
+            }
+            
+            updateClocks();
+            setInterval(updateClocks, 1000);
+
+            // Job Search Timer Logic
+            const searchStartDate = new Date('2025-10-25T00:00:00');
+            const searchTimerEl = document.getElementById('job-search-timer');
+            if (searchTimerEl) {
+                function updateSearchTimer() {
+                    const now = new Date();
+                    const diff = Math.max(0, now - searchStartDate);
+                    
+                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+                    const m = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
+                    const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+                    const ms = Math.floor(diff % 1000).toString().padStart(3, '0');
+
+                    searchTimerEl.innerHTML = `
+                        <div class="flex items-baseline justify-center flex-wrap gap-y-2">
+                            <span class="min-w-[2ch] text-right">${d}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">d</span>
+                            <span class="min-w-[2ch] text-right">${h}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">h</span>
+                            <span class="min-w-[2ch] text-right">${m}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">m</span>
+                            <span class="min-w-[2ch] text-right text-slate-200">${s}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">s</span>
+                            <span class="min-w-[3ch] text-right text-blue-400">${ms}</span><span class="text-sm md:text-base text-blue-500/80 ml-1 font-sans tracking-normal uppercase">ms</span>
+                        </div>
+                    `;
+                    requestAnimationFrame(updateSearchTimer);
+                }
+                requestAnimationFrame(updateSearchTimer);
+            }
+        });
+
+        // --- GEMINI API LOGIC (Vanilla JS) ---
+        const callGeminiAPI = async (userPrompt, systemPrompt) => {
+            const apiKey = ""; // Will be populated at runtime in valid env
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            const delay = (ms) => new Promise(res => setTimeout(res, ms));
+            const retries = [1000, 2000, 4000, 8000, 16000];
+
+            for (let i = 0; i < retries.length; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
+                } catch (error) {
+                    if (i === retries.length - 1) throw error;
+                    await delay(retries[i]);
+                }
+            }
+        };
+
+        // Chat logic
+        let chatMessages = [{ role: 'model', text: "Hi! I'm Spencer's AI Assistant. I have read his entire resume and portfolio. What would you like to know about his skills or experience?" }];
+        
+        function updateChatDOM() {
+            const container = document.getElementById('chatMessages');
+            container.innerHTML = chatMessages.map(msg => `
+                <div class="flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                    ${msg.role === 'model' ? `<div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></div>` : ''}
+                    <div class="p-3 rounded-2xl max-w-[80%] text-sm leading-relaxed ${msg.role === 'user' ? 'bg-blue-600 text-white rounded-tr-none shadow-sm' : 'bg-white text-slate-700 border border-slate-200 rounded-tl-none shadow-sm'}">
+                        ${msg.text}
+                    </div>
+                    ${msg.role === 'user' ? `<div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0"><i data-lucide="user" class="w-[18px] h-[18px]"></i></div>` : ''}
+                </div>
+            `).join('');
+            lucide.createIcons();
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function openTranscriptChat() {
+            const modal = document.getElementById('chatModal');
+            modal.classList.remove('hidden');
+            const inputEl = document.getElementById('chatInput');
+            inputEl.value = "Can you summarize the topics covered in Spencer's news package transcripts?";
+            inputEl.focus();
+        }
+
+        document.getElementById('chatForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const inputEl = document.getElementById('chatInput');
+            const submitBtn = document.getElementById('chatSubmitBtn');
+            const text = inputEl.value.trim();
+            if (!text) return;
+
+            chatMessages.push({ role: 'user', text });
+            inputEl.value = '';
+            inputEl.disabled = true;
+            submitBtn.disabled = true;
+            
+            // Add loading indicator
+            document.getElementById('chatMessages').insertAdjacentHTML('beforeend', `
+                <div id="chatLoading" class="flex gap-3 justify-start">
+                    <div class="w-8 h-8 rounded-full bg-fuchsia-100 text-fuchsia-600 flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-[18px] h-[18px]"></i></div>
+                    <div class="p-4 bg-white text-slate-500 border border-slate-200 rounded-2xl rounded-tl-none flex items-center gap-2">Thinking...</div>
+                </div>
+            `);
+            lucide.createIcons();
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+
+            try {
+                const sys = `You are a helpful AI assistant built to represent Spencer Andrew's portfolio. Use ONLY the provided resume data and transcripts to answer questions from recruiters. Be professional, concise, and enthusiastic. If you do not know the answer based on the data, politely say so and recommend they contact Spencer at spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}\nTranscripts Data: ${JSON.stringify(transcriptsData)}`;
+                const convo = chatMessages.map(m => `${m.role === 'model' ? 'AI' : 'User'}: ${m.text}`).join('\n');
+                const prompt = `Conversation History:\n${convo}\n\nRespond as the AI assistant to the User's last message.`;
+                
+                const response = await callGeminiAPI(prompt, sys);
+                chatMessages.push({ role: 'model', text: response });
+            } catch (err) {
+                chatMessages.push({ role: 'model', text: "I'm having trouble connecting to the AI server right now. Please try again or reach out to Spencer directly!" });
+            } finally {
+                updateChatDOM();
+                inputEl.disabled = false;
+                submitBtn.disabled = false;
+                inputEl.focus();
+            }
+        });
+
+        // Cover Letter Logic
+        document.getElementById('clForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const comp = document.getElementById('clCompany').value.trim();
+            const role = document.getElementById('clRole').value.trim();
+            const btn = document.getElementById('clSubmitBtn');
+            const resContainer = document.getElementById('clResultContainer');
+            const resText = document.getElementById('clResultText');
+            
+            if(!comp || !role) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-[18px] h-[18px] animate-spin"></i> Drafting...`;
+            lucide.createIcons();
+            resContainer.classList.add('hidden');
+
+            try {
+                const sys = `You are an expert career coach AI. Write a custom, professional, and enthusiastic cover letter for Spencer Andrew based on his provided resume data. Tailor it to the specific Company and Job Role requested by the user. Highlight his relevant experience in broadcast journalism, social media, and guest services. Keep it to a maximum of 3 concise paragraphs. Format with clear spacing. Use his contact info: (630) 666-3517, spencerandrew@comcast.net. \nResume Data: ${JSON.stringify(tailoredResumes)}`;
+                const prompt = `Company: ${comp}\nJob Title: ${role}\nPlease generate the cover letter now.`;
+                
+                const response = await callGeminiAPI(prompt, sys);
+                resText.innerText = response;
+                resContainer.classList.remove('hidden');
+            } catch (err) {
+                resText.innerText = "Failed to generate the cover letter due to an error. Please try again.";
+                resContainer.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="sparkles" class="w-[18px] h-[18px]"></i> Generate Draft`;
+                lucide.createIcons();
+            }
+        });
+
+        // Print handler wrapper
+        function handlePrint() {
+            window.print();
+            document.getElementById('printToast').classList.remove('hidden');
+            setTimeout(() => document.getElementById('printToast').classList.add('hidden'), 6000);
+        }
+
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+            
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'mobile_google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
