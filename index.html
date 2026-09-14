@@ -71,6 +71,15 @@
             animation: flashRedYellow 2s infinite;
             border: 2px solid;
         }
+
+        @keyframes flashYellowBorder {
+            0%, 100% { border-color: rgba(250, 204, 21, 0.95); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.25); }
+            50% { border-color: rgba(254, 240, 138, 1); box-shadow: 0 0 18px 4px rgba(250, 204, 21, 0.45); }
+        }
+        .morning-time-zone {
+            animation: flashYellowBorder 1.4s infinite;
+            border-color: rgba(250, 204, 21, 0.95) !important;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800" style="position: relative; min-height: 100%; top: 0px;">
@@ -458,7 +467,7 @@
                             <div class="p-2 bg-emerald-500/10 rounded-lg shrink-0 text-emerald-400 mt-0.5">
                                 <i data-lucide="graduation-cap" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Getting into Harvard</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">Harvard historically maintains an acceptance rate hovering around 5% (roughly 1 in 20).</span>
                             </div>
@@ -467,7 +476,7 @@
                             <div class="p-2 bg-blue-500/10 rounded-lg shrink-0 text-blue-400 mt-0.5">
                                 <i data-lucide="hand" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Being naturally left-handed</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">Approximately 10% to 12% of the global population is left-handed (roughly 1 in 10).</span>
                             </div>
@@ -476,7 +485,7 @@
                             <div class="p-2 bg-orange-500/10 rounded-lg shrink-0 text-orange-400 mt-0.5">
                                 <i data-lucide="utensils" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Catching food poisoning</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">The CDC estimates that 16.6% of Americans (1 in 6) get sick from contaminated food annually.</span>
                             </div>
@@ -485,7 +494,7 @@
                             <div class="p-2 bg-indigo-500/10 rounded-lg shrink-0 text-indigo-400 mt-0.5">
                                 <i data-lucide="ear" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Trouble hearing frequencies</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">About 14% of adults aged 20 to 69 have some level of speech-frequency hearing loss.</span>
                             </div>
@@ -494,7 +503,7 @@
                             <div class="p-2 bg-rose-500/10 rounded-lg shrink-0 text-rose-400 mt-0.5">
                                 <i data-lucide="droplet" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Having a specific blood type</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">Roughly 9% of the population has B-positive blood, making it nearly five times more common than my conversion rate.</span>
                             </div>
@@ -503,7 +512,7 @@
                             <div class="p-2 bg-violet-500/10 rounded-lg shrink-0 text-violet-400 mt-0.5">
                                 <i data-lucide="dices" class="w-4 h-4"></i>
                             </div>
-                            <div>
+                            <div class="text-left">
                                 <span class="text-sm font-bold text-slate-200 block mb-1">Rolling a specific number</span>
                                 <span class="text-xs text-slate-400 leading-relaxed">You have a 16.6% chance (1 in 6) of rolling any designated number on a 6-sided die.</span>
                             </div>
@@ -1290,25 +1299,6 @@
             </div>
         </section>
 
-        <section id="job-market" class="py-20 bg-slate-900 border-b-8 border-rose-600 print:hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-center gap-3 mb-12 text-rose-500 font-semibold uppercase tracking-wider">
-                    <i data-lucide="trending-down" class="w-6 h-6"></i>
-                    <h2>The Job Market Landscape</h2>
-                </div>
-
-                <div class="text-center mb-12 max-w-3xl mx-auto">
-                    <h3 class="text-2xl font-bold text-white mb-3">Understanding the Current Climate</h3>
-                    <p class="text-slate-400 leading-relaxed">
-                        A collection of recent news reports and analyses highlighting the unprecedented challenges, competitiveness, and realities of the modern United States job market.
-                    </p>
-                </div>
-
-                <div id="job-market-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                     </div>
-            </div>
-        </section>
-
         <section id="resumes" class="py-20 bg-slate-200 print:hidden">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-center gap-3 mb-8 text-blue-600 font-semibold uppercase tracking-wider">
@@ -1658,17 +1648,7 @@
 
     <script>
         // --- DATA OBJECTS ---
-        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'AI Apps', 'Job Market', 'Resumes', 'Education', 'Volunteering', 'Skills'];
-
-        const jobMarketVideosData = [
-            { title: "The Reality of the Job Market", show: "The Infographics Show", description: "A look into the current hiring landscape and the challenges recent graduates face.", youtubeId: "17PS8kEfjpI" },
-            { title: "Navigating the Hiring Process", show: "CNBC", description: "An overview of how the job market has shifted in recent times.", youtubeId: "-ozTWIMUDZ8" },
-            { title: "Economic Shifts and Employment", show: "CNBC", description: "Understanding the macroeconomic factors affecting entry-level and professional hiring.", youtubeId: "KW067woSxws" },
-            { title: "The Silent Struggles of Job Seekers", show: "CNBC", description: "Highlighting the disconnect between open positions and actual hiring rates.", youtubeId: "MG1I8fQp43Y" },
-            { title: "Why Getting Hired Takes So Long", show: "CNBC", description: "A deep dive into modern interview processes and application volume.", youtubeId: "-FAYkoAeTVU" },
-            { title: "The Future of Work and Hiring", show: "CNBC Make It", description: "Perspectives on where the job market is heading and how to adapt.", youtubeId: "YmU9xtnpGtk" },
-            { title: "Why Gen Z is getting fired after being hired", show: "USA TODAY", description: "An interview with NYU professor Susie Welch discussing the disconnect in values between recent graduates and employers, plus the impact of AI on entry-level jobs.", youtubeId: "7SrVX4FTFWc" },
-        ];
+        const sections = ['About', 'Journey', 'Experience', 'News Packages', 'Transcripts', 'GMM Packages', 'Radio Broadcasts', 'Audio Interviews', 'TikTok Challenges', 'Social Media Samples', 'Written Work', 'The World Today', 'Other Projects', 'AI Apps', 'Resumes', 'Education', 'Volunteering', 'Skills'];
 
         const newsPackagesData = [
             {
@@ -2575,20 +2555,6 @@ const transcriptsData = [
             `).join('');
         }
 
-        function renderJobMarketVideos() {
-            const container = document.getElementById('job-market-container');
-            container.innerHTML = jobMarketVideosData.map(pkg => `
-                <div class="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 hover:border-rose-500/50 transition-colors">
-                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-900 mb-5 relative group shadow-md border border-slate-700">
-                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed/${pkg.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2 leading-tight">${pkg.title}</h4>
-                    <p class="text-xs font-bold text-rose-400 mb-3 uppercase tracking-wide">${pkg.show}</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">${pkg.description}</p>
-                </div>
-            `).join('');
-        }
-
         let currentResumeKey = 'socialMedia';
 
         function renderResumeTabs() {
@@ -2745,7 +2711,6 @@ const transcriptsData = [
             renderTWTPackages();
             renderOtherProjects();
             renderAIApps();
-            renderJobMarketVideos();
             renderResumeTabs();
             renderActiveResume();
             lucide.createIcons();
@@ -2837,6 +2802,12 @@ const transcriptsData = [
                     const el = document.getElementById(id);
                     if (el) {
                         el.innerText = now.toLocaleTimeString('en-US', { ...timeOptions, timeZone: tz });
+                        const localHour = Number(new Intl.DateTimeFormat('en-US', {
+                            hour: 'numeric',
+                            hourCycle: 'h23',
+                            timeZone: tz
+                        }).format(now));
+                        el.parentElement.classList.toggle('morning-time-zone', localHour >= 0 && localHour < 12);
                     }
                 }
 
