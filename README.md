@@ -14,7 +14,7 @@ Changes:
 • Add dependency-free Node regression tests and require validation before default-branch Pages publication. Test Pages packaging on repair branches without deploying, and publish only index.html (not test files).
 
 Verification: 
-• All 15 targeted checks plus Pages packaging passed for latest repair commit 21dfe292: https://gitlab.com/the-world-today-news-organization-group/portfolio-website/-/pipelines/2860183119.
+• All 15 targeted checks plus Pages packaging passed for latest repair commit 21dfe292.
 • Coverage includes inline JavaScript parsing, DOM lookup/navigation targets, full initialization, resume switching, experience filtering, volunteer rendering, news video fallbacks, markup structure, both AI form success/failure flows, model discovery, missing keys, permanent API errors, blocked responses, immediate literal chat rendering, and repeated icon replacement.
 • Tests use lightweight DOM simulation and mocked Google responses. Live Gemini generation, real-browser console/network checks, and responsive visual testing remain outstanding. No real credentials are used in tests; visitors still supply their own Gemini key.
 
