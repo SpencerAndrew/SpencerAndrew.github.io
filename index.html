@@ -80,6 +80,19 @@
             animation: flashYellowBorder 1.4s infinite;
             border-color: rgba(250, 204, 21, 0.95) !important;
         }
+
+        /* Keep desktop navigation legible in both header states. */
+        #navbar #desktop-nav-links a { color: #e2e8f0; }
+        #navbar #desktop-nav-links a:hover,
+        #navbar #desktop-nav-links a:focus-visible { color: #93c5fd; }
+        #navbar.is-scrolled #desktop-nav-links a { color: #1e293b; }
+        #navbar.is-scrolled #desktop-nav-links a:hover,
+        #navbar.is-scrolled #desktop-nav-links a:focus-visible { color: #1d4ed8; }
+        #navbar #desktop-nav-links a:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800" style="position: relative; min-height: 100%; top: 0px;">
@@ -2018,11 +2031,12 @@ const transcriptsData = [
         function renderNav() {
             const dNav = document.getElementById('desktop-nav-links');
             const mNav = document.getElementById('mobile-nav-links');
+            dNav.innerHTML = '';
+            mNav.innerHTML = '';
             sections.forEach(item => {
                 const id = item.toLowerCase().replace(/\s+/g, '-');
-                const linkHTML = `<a href="#${id}" class="font-medium transition-colors text-slate-200 hover:text-blue-400 nav-link-item block w-full text-left px-3 py-3 lg:px-0 lg:py-0 lg:inline lg:w-auto text-slate-700 lg:text-slate-200 hover:bg-blue-50 lg:hover:bg-transparent lg:hover:text-blue-400 rounded lg:rounded-none">${item}</a>`;
-                dNav.insertAdjacentHTML('beforeend', linkHTML.replace('block w-full text-left px-3 py-3 text-slate-700 hover:bg-blue-50', '')); // Strip mobile classes for desktop
-                mNav.insertAdjacentHTML('beforeend', linkHTML);
+                dNav.insertAdjacentHTML('beforeend', `<a href="#${id}" class="font-medium transition-colors nav-link-item">${item}</a>`);
+                mNav.insertAdjacentHTML('beforeend', `<a href="#${id}" class="font-medium transition-colors nav-link-item block w-full text-left px-3 py-3 text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded">${item}</a>`);
             });
         }
 
@@ -2476,34 +2490,27 @@ const transcriptsData = [
             const navBrand = document.getElementById('nav-brand');
             const backToTopBtn = document.getElementById('backToTopBtn');
             
-            window.addEventListener('scroll', () => {
-                // Back to Top Button Visibility
-                if (window.scrollY > 400) {
-                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    backToTopBtn.classList.add('opacity-100', 'translate-y-0');
-                } else {
-                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
-                }
+            function updateScrollState() {
+                const scrolled = window.scrollY > 50;
+                nav.classList.toggle('is-scrolled', scrolled);
+                nav.classList.toggle('bg-white', scrolled);
+                nav.classList.toggle('bg-transparent', !scrolled);
+                nav.classList.toggle('shadow-md', scrolled);
+                navBrand.classList.toggle('text-blue-900', scrolled);
+                navBrand.classList.toggle('text-white', !scrolled);
+                btn.classList.toggle('text-slate-900', scrolled);
+                btn.classList.toggle('text-white', !scrolled);
 
-                if (window.scrollY > 50) {
-                    nav.classList.replace('bg-transparent', 'bg-white');
-                    nav.classList.add('shadow-md');
-                    navBrand.classList.replace('text-white', 'text-blue-900');
-                    btn.classList.replace('text-white', 'text-slate-900');
-                    document.querySelectorAll('#desktop-nav-links a').forEach(a => {
-                        a.classList.replace('text-slate-200', 'text-slate-600');
-                    });
-                } else {
-                    nav.classList.replace('bg-white', 'bg-transparent');
-                    nav.classList.remove('shadow-md');
-                    navBrand.classList.replace('text-blue-900', 'text-white');
-                    btn.classList.replace('text-slate-900', 'text-white');
-                    document.querySelectorAll('#desktop-nav-links a').forEach(a => {
-                        a.classList.replace('text-slate-600', 'text-slate-200');
-                    });
-                }
-            });
+                const showBackToTop = window.scrollY > 400;
+                backToTopBtn.classList.toggle('opacity-0', !showBackToTop);
+                backToTopBtn.classList.toggle('pointer-events-none', !showBackToTop);
+                backToTopBtn.classList.toggle('translate-y-4', !showBackToTop);
+                backToTopBtn.classList.toggle('opacity-100', showBackToTop);
+                backToTopBtn.classList.toggle('translate-y-0', showBackToTop);
+            }
+            window.addEventListener('scroll', updateScrollState, { passive: true });
+            window.addEventListener('pageshow', updateScrollState);
+            updateScrollState();
 
             // Experience Filter Logic
             document.getElementById('experienceFilter').addEventListener('change', (e) => {
