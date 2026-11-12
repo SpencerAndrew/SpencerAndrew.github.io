@@ -1103,6 +1103,11 @@
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="gmm-packages-container">
 </div>
+<div class="mt-12 pt-10 border-t border-purple-700/50" id="gmm-transcripts" aria-labelledby="gmm-transcripts-heading">
+<div class="flex items-center gap-3 mb-4 text-yellow-400"><i class="w-5 h-5" data-lucide="file-text" aria-hidden="true"></i><h3 class="text-xl font-bold" id="gmm-transcripts-heading">Good Morning Macomb Transcripts</h3></div>
+<p class="text-sm text-slate-300 mb-6">Written transcripts for the media above. Expand a title to read its transcript when available.</p>
+<div class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl transcripts-scroll" id="gmm-transcripts-container"></div>
+</div>
 </div>
 </section>
 <section class="py-16 bg-purple-900 border-t border-purple-800 print:hidden" id="radio-broadcasts">
@@ -1119,6 +1124,11 @@
 </div>
 <div class="grid md:grid-cols-2 gap-8" id="radio-broadcasts-container">
 </div>
+<div class="mt-12 pt-10 border-t border-purple-700/50" id="radio-transcripts" aria-labelledby="radio-transcripts-heading">
+<div class="flex items-center gap-3 mb-4 text-yellow-400"><i class="w-5 h-5" data-lucide="file-text" aria-hidden="true"></i><h3 class="text-xl font-bold" id="radio-transcripts-heading">88.3 The Dog Radio Broadcast Transcripts</h3></div>
+<p class="text-sm text-slate-300 mb-6">Written transcripts for the media above. Expand a title to read its transcript when available.</p>
+<div class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl transcripts-scroll" id="radio-transcripts-container"></div>
+</div>
 </div>
 </section>
 <section class="py-16 bg-purple-900 border-t border-purple-800 print:hidden" id="audio-interviews">
@@ -1134,6 +1144,11 @@
                     </p>
 </div>
 <div class="grid md:grid-cols-2 gap-8" id="audio-interviews-container">
+</div>
+<div class="mt-12 pt-10 border-t border-purple-700/50" id="audio-transcripts" aria-labelledby="audio-transcripts-heading">
+<div class="flex items-center gap-3 mb-4 text-yellow-400"><i class="w-5 h-5" data-lucide="file-text" aria-hidden="true"></i><h3 class="text-xl font-bold" id="audio-transcripts-heading">Audio Interview Transcripts</h3></div>
+<p class="text-sm text-slate-300 mb-6">Written transcripts for the media above. Expand a title to read its transcript when available.</p>
+<div class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl transcripts-scroll" id="audio-transcripts-container"></div>
 </div>
 </div>
 </section>
@@ -1200,6 +1215,11 @@
                     </p>
 </div>
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="twt-packages-container">
+</div>
+<div class="mt-12 pt-10 border-t border-purple-700/50" id="twt-transcripts" aria-labelledby="twt-transcripts-heading">
+<div class="flex items-center gap-3 mb-4 text-yellow-400"><i class="w-5 h-5" data-lucide="file-text" aria-hidden="true"></i><h3 class="text-xl font-bold" id="twt-transcripts-heading">The World Today News Transcripts</h3></div>
+<p class="text-sm text-slate-300 mb-6">Written transcripts for the media above. Expand a title to read its transcript when available.</p>
+<div class="grid md:grid-cols-2 gap-6 max-h-[600px] overflow-y-auto pr-2 rounded-xl transcripts-scroll" id="twt-transcripts-container"></div>
 </div>
 </div>
 <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-rose-600 via-amber-500 via-emerald-500 to-blue-600"></div>
@@ -2147,6 +2167,27 @@ const transcriptsData = [
             `).join('');
         }
 
+
+        // Add a `transcript` string to a media item to publish its verified transcript.
+        // No transcript is inferred from a description or a different recording.
+        function renderMediaTranscripts() {
+            const groups = [['gmm-transcripts-container', gmmPackagesData],['radio-transcripts-container', radioBroadcastsData],['audio-transcripts-container', audioInterviewsData],['twt-transcripts-container', twtPackagesData]];
+            groups.forEach(([containerId, items]) => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = items.map(item => {
+                    const content = typeof item.transcript === 'string' ? item.transcript.trim() : '';
+                    return `<details class="bg-slate-900/80 p-5 rounded-2xl border border-purple-700/50 hover:border-fuchsia-500/50 transition-colors self-start">
+                        <summary class="cursor-pointer text-lg font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-yellow-400 rounded">
+                            ${escapeChatText(item.title)}
+                            <span class="block text-xs font-normal text-fuchsia-300 mt-2 ml-4">${content ? 'Read transcript' : 'Transcript coming soon'}</span>
+                        </summary>
+                        <div class="mt-4 pt-4 border-t border-slate-700 text-sm text-slate-300 leading-relaxed whitespace-pre-line">${escapeChatText(content || 'A transcript has not been added for this recording yet.')}</div>
+                    </details>`;
+                }).join('');
+            });
+        }
+
         function renderGMMPackages() {
             const container = document.getElementById('gmm-packages-container');
             container.innerHTML = gmmPackagesData.map(pkg => `
@@ -2432,6 +2473,7 @@ const transcriptsData = [
             renderExperience();
             renderNewsPackages();
             renderTranscripts();
+            renderMediaTranscripts();
             renderGMMPackages();
             renderRadioBroadcasts();
             renderAudioInterviews();
@@ -2547,27 +2589,20 @@ const transcriptsData = [
             const searchStartDate = new Date('2025-10-25T00:00:00-05:00');
             const searchTimerEl = document.getElementById('job-search-timer');
             if (searchTimerEl) {
+                searchTimerEl.innerHTML = `<div class="flex items-baseline justify-center flex-wrap gap-y-2" aria-label="Elapsed career hunt time">
+                    ${[['days','d',2],['hours','h',2],['minutes','m',2],['seconds','s',2],['milliseconds','ms',3]].map(([unit,label,width]) => `<span class="inline-flex items-baseline"><span data-timer-unit="${unit}" style="min-width:${width}ch" class="text-right">${'0'.repeat(width)}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">${label}</span></span>`).join('')}
+                </div>`;
+                const timerUnits = ['days','hours','minutes','seconds','milliseconds'].map(unit => searchTimerEl.querySelector(`[data-timer-unit="${unit}"]`));
                 function updateSearchTimer() {
-                    const now = new Date();
-                    const diff = Math.max(0, now - searchStartDate);
-                    
-                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-                    const m = Math.floor((diff / 1000 / 60) % 60).toString().padStart(2, '0');
-                    const s = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
-                    
-
-                    searchTimerEl.innerHTML = `
-                        <div class="flex items-baseline justify-center flex-wrap gap-y-2">
-                            <span class="min-w-[2ch] text-right">${d}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">d</span>
-                            <span class="min-w-[2ch] text-right">${h}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">h</span>
-                            <span class="min-w-[2ch] text-right">${m}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">m</span>
-                            <span class="min-w-[2ch] text-right text-slate-200">${s}</span><span class="text-sm md:text-base text-slate-400 ml-1 mr-2 md:mr-4 font-sans tracking-normal uppercase">s</span>
-                        </div>
-                    `;
-                    setTimeout(updateSearchTimer, 1000);
+                    const diff = Math.max(0, Date.now() - searchStartDate.getTime());
+                    const values = [Math.floor(diff / 86400000), Math.floor(diff / 3600000) % 24, Math.floor(diff / 60000) % 60, Math.floor(diff / 1000) % 60, diff % 1000];
+                    values.forEach((value, index) => {
+                        const text = String(value).padStart(index === 4 ? 3 : 2, '0');
+                        if (timerUnits[index].textContent !== text) timerUnits[index].textContent = text;
+                    });
+                    requestAnimationFrame(updateSearchTimer);
                 }
-                setTimeout(updateSearchTimer, 1000);
+                updateSearchTimer();
             }
         });
 
